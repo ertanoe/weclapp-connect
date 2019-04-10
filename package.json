@@ -1,0 +1,37 @@
+{
+  "name": "@weclapp/weclapp-connect",
+  "version": "1.0.0",
+  "description": "connect weclapp through external application",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "all": "node index"
+  },
+  "author": "sudhir",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ertanoe/weclapp-connect.git"
+  },
+  "keywords": [
+    "weclapp-connect",
+	"partner portal connect"
+  ],
+  "bugs": {
+    "url": "https://github.com/ertanoe/weclapp-connect/issues"
+  },
+  "homepage": "https://github.com/ertanoe/weclapp-connect#readme"
+}
