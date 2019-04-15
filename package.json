@@ -5,8 +5,8 @@
     "main": "src/app",
     "scripts": {
         "test": "mocha --reporter spec",
-		"lint": "eslint --env browser,node ./src/*.js",
-		"lintFix": "eslint --fix --env browser,node ./src/*.js"
+        "lint": "eslint --env browser,node ./src/*.js",
+        "lintFix": "eslint --fix --env browser,node ./src/*.js"
     },
     "author": "sudhir",
     "license": "MIT",
@@ -16,7 +16,6 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "eslint": "^5.16.0",
-        "eslint-config-google": "^0.12.0",
         "mocha": "^6.1.2"
     },
     "dependencies": {
