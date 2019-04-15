@@ -4,7 +4,7 @@
     "description": "connect weclapp through external application",
     "main": "src/app",
     "scripts": {
-        "test": "mocha --reporter spec",
+        "test": "mocha --timeout 5000",
         "lint": "eslint --env browser,node ./src/*.js",
         "lintFix": "eslint --fix --env browser,node ./src/*.js"
     },

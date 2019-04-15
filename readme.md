@@ -18,14 +18,12 @@ npm i @weclapp/connect
 #### 
     {
 	   "username": "*",
-	   "password": "****",
 	   "tenant": "your Tenant url",
 	   "apiKey": "**********************",
-	   "allowed": ["get", "post", "delete"],
 	   "debug":"false"
     }
 	
-#### Once file is created
++ #### Once file is created
 
 ```python
 import connect from @weclapp/connect
@@ -34,6 +32,16 @@ var auth = connect.auth()
 console.log(auth)
 ```
 
+```python
+async function getTimeRecords(){
+	let formObj = {
+		"endPoint': "timeRecord",
+		"method": "get"
+	}
+	var resp = await connect.call(formObj)
+	console.log(resp)
+}
+```
 
 
 ## License
