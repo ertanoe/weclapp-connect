@@ -1,13 +1,13 @@
-# weclapp-connect
+## @weclapp/connect
 
 use this module to connect weclapp rest api from any external app running on nodejs.
 
 ## Installation
 
-Use the package manager [weclapp-connect](https://www.npmjs.com/package/weclapp-connect) to install.
+Use the package manager [weclapp-connect](https://www.npmjs.com/package/@weclapp/connect) to install.
 
 ```bash
-npm i @wedclapp/weclapp-connect
+npm i @weclapp/connect
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ npm i @wedclapp/weclapp-connect
 #### Once file is created
 
 ```python
-import connect from weclapp-connect
+import connect from @weclapp/connect
 
 var auth = connect.auth()
 console.log(auth)

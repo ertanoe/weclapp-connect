@@ -1,37 +1,42 @@
 {
-  "name": "@weclapp/weclapp-connect",
-  "version": "1.0.0",
-  "description": "connect weclapp through external application",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha --reporter spec",
-    "all": "node index"
-  },
-  "author": "sudhir",
-  "license": "MIT",
-  "engines": {
-    "node": ">=4.2.4"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.2"
-  },
-  "dependencies": {
-    "axios": "^0.18.0"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ertanoe/weclapp-connect.git"
-  },
-  "keywords": [
-    "weclapp-connect",
-	"partner portal connect"
-  ],
-  "bugs": {
-    "url": "https://github.com/ertanoe/weclapp-connect/issues"
-  },
-  "homepage": "https://github.com/ertanoe/weclapp-connect#readme"
+    "name": "@weclapp/connect",
+    "version": "1.0.0",
+    "description": "connect weclapp through external application",
+    "main": "src/app",
+    "scripts": {
+        "test": "mocha --reporter spec",
+		"lint": "eslint --env browser,node ./src/*.js",
+		"lintFix": "eslint --fix --env browser,node ./src/*.js"
+    },
+    "author": "sudhir",
+    "license": "MIT",
+    "engines": {
+        "node": ">=4.2.4"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-google": "^0.12.0",
+        "mocha": "^6.1.2"
+    },
+    "dependencies": {
+        "node-fetch": "^2.3.0",
+        "path": "^0.12.7"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ertanoe/weclapp-connect.git"
+    },
+    "keywords": [
+        "weclapp",
+        "weclapp-connect",
+        "partner portal connect"
+    ],
+    "bugs": {
+        "url": "https://github.com/ertanoe/weclapp-connect/issues"
+    },
+    "homepage": "https://github.com/ertanoe/weclapp-connect#readme"
 }
