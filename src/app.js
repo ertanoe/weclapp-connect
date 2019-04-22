@@ -7,10 +7,9 @@ module.exports = {
 	 * load and return connect-config.json from root directories
 	 * @returns {Promise<object>}
 	 */
-	async loadConfig() {
+	loadConfig() {
 		try {
-			let config = await fs.readFileSync(__dirname + "../../../connect-config.json", "utf8")
-			config = JSON.parse(config)
+			let config = JSON.parse(fs.readFileSync(__dirname + "../../../connect-config.json", "utf8"))
 
 			let requiredInputs = ["username", "tenant", "apiKey"]
 			for (let input of requiredInputs) {
@@ -79,7 +78,6 @@ module.exports = {
 					}
 				})
 				.catch(err => {
-					console.error("Request failed", err)
 					reject(err)
 				})
 		})
@@ -90,13 +88,13 @@ module.exports = {
 			"status": res.status
 		}
 		if (res.ok) {
-			if (res.status == 204) {
+			if (res.status === 204) {
 				newResp.info = "deleted"
 			} else {
 				newResp = res
 			}
 		} else {
-			if (res.status == 404) {
+			if (res.status === 404) {
 				newResp.info = "No content Found"
 			} else {
 				throw res.statusText

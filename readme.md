@@ -25,7 +25,7 @@ npm i @weclapp/connect
 	
 + #### Once file is created
 
-```python
+```js
 import connect from @weclapp/connect
 
 var auth = connect.auth()
