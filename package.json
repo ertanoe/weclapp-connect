@@ -19,11 +19,7 @@
 		"mocha": "^6.1.2"
 	},
 	"dependencies": {
-		"node-fetch": "^2.3.0",
-		"path": "^0.12.7"
-	},
-	"directories": {
-		"test": "test"
+		"node-fetch": "^2.3.0"
 	},
 	"repository": {
 		"type": "git",

@@ -17,37 +17,41 @@ Install via yarn:
 $ yarn add @weclapp/connect
 ```
 
-## Usage
+## Usage example
 
-Create a file `connect-config.json` and insert your credentials:  
-
-```
-{
-	"username": "*",
-	"tenant": "your Tenant url",
-	"apiKey": "**********************",
-	"debug":"false"
-}
-```
-
-Than you can use it as proceeding:
+#### Authenticate
 
 ```js
-import connect from '@weclapp/connect'
+const weclapp = require('@weclapp/connect')
 
 (async () => {
-
+	
 	// Authenticate
-	const auth = await connect.auth()
+	const user = await weclapp({
+		username: '<USERNAME>',
+		apikey: '<APIKEY>',
+		tenant: '<TENANT>'
+	})
+
+	// Prints the current user to the console
+	console.log(user)
+})()
+```
+
+#### Request time records
+```js
+const weclapp = require('@weclapp/connect')
+
+(async () => {
+	const user = await weclapp({
+		username: '<USERNAME>',
+		apikey: '<APIKEY>',
+		tenant: '<TENANT>'
+	})
 	
-	// Get time records
-	const timeRecords = await connect.call({
-		"endPoint': "timeRecord",
-		"method": "get"
-	});
-	
-	console.log(timeRecords)
-})();
+	// Prints time-records to the console
+	console.log(await user.request('timeRecord'))
+})()
 ```
 
 ## License

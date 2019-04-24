@@ -1,8 +1,8 @@
-"use strict"
 const chai = require("chai")
 const expect = chai.expect
 const app = require("../src/app")
 
+// TODO Update tests
 describe("#1 connect.auth()", function() {
 	it("valid auth will matched responce keys", async function() {
 		let keyArr = ["id", "version", "createdDate", "email", "firstName", "lastModifiedDate", "lastName", "status", "username"]
@@ -26,8 +26,9 @@ let timeRecordRespArr = [
 	"userId",
 	"userUsername"
 ]
+
 describe("#2 connect.call() GET Method", function() {
-	it("fetching timeRecord from weclapp api", async function() {
+	it("fetching timeRecord from app.js api", async function() {
 		let input = {
 			"endPoint": "timeRecord",
 			"method": "get"
@@ -55,7 +56,7 @@ describe("#3 connect.call() POST Method", function() {
 				"projectNumber": "1003",
 				"startDate": 1539023400000,
 				"userId": "1809",
-				"userUsername": "gupta@weclapp.com"
+				"userUsername": "gupta@app.js.com"
 			}
 		}
 		const resp = await app.call(input)
