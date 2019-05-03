@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaigns({page, pageSize, sort}) {
-		return this.fetch(buildUrl('campaign', {page, pageSize, sort}))
+	async getSalesStages({page, pageSize, sort}) {
+		return this.fetch(buildUrl('salesStage', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCampaign(body) {
-		return this.fetch('campaign', {method: 'POST', body})
+	async createSalesStage(body) {
+		return this.fetch('salesStage', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignsCount() {
-		return this.fetch('campaign/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'DELETE'})
+	async getSalesStageCount() {
+		return this.fetch('salesStage/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}))
+	async deleteSalesStageById(id) {
+		return this.fetch(buildUrl(`salesStage/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getSalesStageById(id) {
+		return this.fetch(buildUrl(`salesStage/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCampaignForId(id, body) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSalesStageForId(id, body) {
+		return this.fetch(buildUrl(`salesStage/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

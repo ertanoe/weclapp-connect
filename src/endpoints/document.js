@@ -37,7 +37,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateDocumentById(id, body) {
+	async updateDocumentForId(id, body) {
 		return this.fetch(buildUrl(`document/id/${id}`, {id}), {method: 'PUT', body})
 	},
 

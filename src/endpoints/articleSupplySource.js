@@ -40,7 +40,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateArticleSupplySourceById(id, body) {
+	async updateArticleSupplySourceForId(id, body) {
 		return this.fetch(buildUrl(`articleSupplySource/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

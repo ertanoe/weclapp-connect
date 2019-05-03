@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCustomerCategoryById(id, body) {
+	async updateCustomerCategoryForId(id, body) {
 		return this.fetch(buildUrl(`customerCategory/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

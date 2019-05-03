@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaigns({page, pageSize, sort}) {
-		return this.fetch(buildUrl('campaign', {page, pageSize, sort}))
+	async getSectors({page, pageSize, sort}) {
+		return this.fetch(buildUrl('sector', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCampaign(body) {
-		return this.fetch('campaign', {method: 'POST', body})
+	async createSector(body) {
+		return this.fetch('sector', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignsCount() {
-		return this.fetch('campaign/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'DELETE'})
+	async getSectorCount() {
+		return this.fetch('sector/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}))
+	async deleteSectorById(id) {
+		return this.fetch(buildUrl(`sector/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getSectorById(id) {
+		return this.fetch(buildUrl(`sector/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCampaignForId(id, body) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSectorForId(id, body) {
+		return this.fetch(buildUrl(`sector/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

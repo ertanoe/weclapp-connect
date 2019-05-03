@@ -8,47 +8,45 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaigns({page, pageSize, sort}) {
-		return this.fetch(buildUrl('campaign', {page, pageSize, sort}))
-	},
-
-	/**
-	 * @param body
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async createCampaign(body) {
-		return this.fetch('campaign', {method: 'POST', body})
+	async getUsers({page, pageSize, sort}) {
+		return this.fetch(buildUrl('user', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignsCount() {
-		return this.fetch('campaign/count')
+	async getUserCount() {
+		return this.fetch('user/count')
 	},
 
 	/**
-	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async deleteCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'DELETE'})
+	async getUser() {
+		return this.fetch('user/currentUser')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}))
+	async getUserById(id) {
+		return this.fetch(buildUrl(`user/id/${id}`, {id}))
 	},
 
 	/**
 	 * @param id
-	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCampaignForId(id, body) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'PUT', body})
+	async getUserImageById(id) {
+		return this.fetch(buildUrl(`user/id/${id}/userImage`, {id}))
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getUserImageThumbnailById(id) {
+		return this.fetch(buildUrl(`user/id/${id}/userImageThumbnail`, {id}))
 	}
 }

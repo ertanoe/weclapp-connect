@@ -8,39 +8,31 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaigns({page, pageSize, sort}) {
-		return this.fetch(buildUrl('campaign', {page, pageSize, sort}))
+	async getSalesInvoices({page, pageSize, sort}) {
+		return this.fetch(buildUrl('salesInvoice', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCampaign(body) {
-		return this.fetch('campaign', {method: 'POST', body})
+	async createSalesInvoice(body) {
+		return this.fetch('salesInvoice', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignsCount() {
-		return this.fetch('campaign/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'DELETE'})
+	async getSalesInvoiceCount() {
+		return this.fetch('salesInvoice/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}))
+	async getSalesInvoiceById(id) {
+		return this.fetch(buildUrl(`salesInvoice/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +40,15 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCampaignForId(id, body) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSalesInvoiceForId(id, body) {
+		return this.fetch(buildUrl(`salesInvoice/id/${id}`, {id}), {method: 'PUT', body})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getLatestSalesInvoicePdfById(id) {
+		return this.fetch(buildUrl(`salesInvoice/id/${id}/downloadLatestSalesInvoicePdf`, {id}))
 	}
 }

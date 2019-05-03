@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaigns({page, pageSize, sort}) {
-		return this.fetch(buildUrl('campaign', {page, pageSize, sort}))
+	async getPaymentMethods({page, pageSize, sort}) {
+		return this.fetch(buildUrl('paymentMethod', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCampaign(body) {
-		return this.fetch('campaign', {method: 'POST', body})
+	async createPaymentMethod(body) {
+		return this.fetch('paymentMethod', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignsCount() {
-		return this.fetch('campaign/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'DELETE'})
+	async getPaymentMethodCount() {
+		return this.fetch('paymentMethod/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCampaignById(id) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}))
+	async deletePaymentMethodById(id) {
+		return this.fetch(buildUrl(`paymentMethod/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getPaymentMethodById(id) {
+		return this.fetch(buildUrl(`paymentMethod/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCampaignForId(id, body) {
-		return this.fetch(buildUrl(`campaign/id/${id}`, {id}), {method: 'PUT', body})
+	async updatePaymentMethodForId(id, body) {
+		return this.fetch(buildUrl(`paymentMethod/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

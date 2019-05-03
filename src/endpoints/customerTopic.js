@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCustomerTopicById(id, body) {
+	async updateCustomerTopicForId(id, body) {
 		return this.fetch(buildUrl(`customerTopic/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

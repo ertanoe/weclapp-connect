@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateLeadSourceById(id, body) {
+	async updateLeadSourceForId(id, body) {
 		return this.fetch(buildUrl(`leadSource/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

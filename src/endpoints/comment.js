@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCommentById(id, body) {
+	async updateCommentForId(id, body) {
 		return this.fetch(buildUrl(`comment/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContacts({page, pageSize, sort}) {
-		return this.fetch(buildUrl('contact', {page, pageSize, sort}))
+	async getSuppliers({page, pageSize, sort}) {
+		return this.fetch(buildUrl('supplier', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createContact(body) {
-		return this.fetch('contact', {method: 'POST', body})
+	async createSupplier(body) {
+		return this.fetch('supplier', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContactCount() {
-		return this.fetch('contact/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteContactById(id) {
-		return this.fetch(buildUrl(`contact/id/${id}`, {id}), {method: 'DELETE'})
+	async getSuppliers() {
+		return this.fetch('supplier/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContactById(id) {
-		return this.fetch(buildUrl(`contact/id/${id}`, {id}))
+	async deleteSupplierById(id) {
+		return this.fetch(buildUrl(`supplier/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getSupplierById(id) {
+		return this.fetch(buildUrl(`supplier/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,8 +48,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateContactForId(id, body) {
-		return this.fetch(buildUrl(`contact/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSupplierForId(id, body) {
+		return this.fetch(buildUrl(`supplier/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
@@ -58,8 +58,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContactImageById({id, scaleWidth, scaleHeight}) {
-		return this.fetch(buildUrl(`contact/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getSupplierImage({id, scaleWidth, scaleHeight}) {
+		return this.fetch(buildUrl(`supplier/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
 	},
 
 	/**
@@ -67,7 +67,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createContactImageForId(id, body) {
-		return this.fetch(buildUrl(`contact/id/${id}/uploadImage`, {id}), {method: 'POST', body})
+	async createSupplierImageForId(id, body) {
+		return this.fetch(buildUrl(`supplier/id/${id}/uploadImage`, {id}), {method: 'POST', body})
 	}
 }

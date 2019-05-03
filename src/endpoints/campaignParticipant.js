@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCampaignParticipantById(id, body) {
+	async updateCampaignParticipantForId(id, body) {
 		return this.fetch(buildUrl(`campaignParticipant/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }
