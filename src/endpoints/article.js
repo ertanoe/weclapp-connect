@@ -71,7 +71,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async uploadArticleImage({id, name, mainImage, body}) {
+	async uploadArticleImage({id, name, mainImage}, body) {
 		return this.fetch(buildUrl(`article/id/${id}/uploadArticleImage`, {name, mainImage}), {method: 'POST', body})
 	}
 }
