@@ -5,31 +5,31 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocument() {
-		return this.fetch('document')
+	async getDocument(fetch) {
+		return fetch('document')
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocumentCount() {
-		return this.fetch('document/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteDocumentById(id) {
-		return this.fetch(buildUrl(`document/id/${id}`, {id}), {method: 'DELETE'})
+	async getDocumentCount(fetch) {
+		return fetch('document/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocumentById(id) {
-		return this.fetch(buildUrl(`document/id/${id}`, {id}))
+	async deleteDocumentById(fetch, id) {
+		return fetch(buildUrl(`document/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getDocumentById(fetch, id) {
+		return fetch(buildUrl(`document/id/${id}`, {id}))
 	},
 
 	/**
@@ -37,16 +37,16 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateDocumentForId(id, body) {
-		return this.fetch(buildUrl(`document/id/${id}`, {id}), {method: 'PUT', body})
+	async updateDocumentForId(fetch, id, body) {
+		return fetch(buildUrl(`document/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocumentAsDownloadById(id) {
-		return this.fetch(buildUrl(`document/id/${id}/download`, {id}))
+	async getDocumentAsDownloadById(fetch, id) {
+		return fetch(buildUrl(`document/id/${id}/download`, {id}))
 	},
 
 	/**
@@ -54,8 +54,8 @@ module.exports = {
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocumentVersion(id) {
-		return this.fetch(buildUrl(`document/id/${id}/downloadDocumentVersion`))
+	async getDocumentVersion(fetch, id) {
+		return fetch(buildUrl(`document/id/${id}/downloadDocumentVersion`))
 	},
 
 	/**
@@ -64,8 +64,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createDocument({id, comment}, body) {
-		return this.fetch(buildUrl(`document/id/${id}/upload`, {id, comment}), {method: 'POST', body})
+	async createDocument(fetch, {id, comment}, body) {
+		return fetch(buildUrl(`document/id/${id}/upload`, {id, comment}), {method: 'POST', body})
 	},
 
 	/**
@@ -76,7 +76,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createEntityDocument({entityName, entityId, name, description}, body) {
-		return this.fetch(buildUrl('document/upload', {entityName, entityId, name, description}), {method: 'POST', body})
+	async createEntityDocument(fetch, {entityName, entityId, name, description}, body) {
+		return fetch(buildUrl('document/upload', {entityName, entityId, name, description}), {method: 'POST', body})
 	}
 }

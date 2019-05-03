@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomAttributeDefinitions({page, pageSize, sort}) {
-		return this.fetch(buildUrl('customAttributeDefinition', {page, pageSize, sort}))
+	async getCustomAttributeDefinitions(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('customAttributeDefinition', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomAttributeDefinitionCount() {
-		return this.fetch('customAttributeDefinition/count')
+	async getCustomAttributeDefinitionCount(fetch) {
+		return fetch('customAttributeDefinition/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomAttributeDefinitionById(id) {
-		return this.fetch(buildUrl(`customAttributeDefinition/id/${id}`, {id}))
+	async getCustomAttributeDefinitionById(fetch, id) {
+		return fetch(buildUrl(`customAttributeDefinition/id/${id}`, {id}))
 	}
 }

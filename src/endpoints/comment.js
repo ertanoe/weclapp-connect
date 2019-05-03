@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getComments({page, pageSize, sort}) {
-		return this.fetch(buildUrl('comment', {page, pageSize, sort}))
+	async getComments(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('comment', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createComment(body) {
-		return this.fetch('comment', {method: 'POST', body})
+	async createComment(fetch, body) {
+		return fetch('comment', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCommentCount() {
-		return this.fetch('comment/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCommentById(id) {
-		return this.fetch(buildUrl(`comment/id/${id}`, {id}), {method: 'DELETE'})
+	async getCommentCount(fetch) {
+		return fetch('comment/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCommentById(id) {
-		return this.fetch(buildUrl(`comment/id/${id}`, {id}))
+	async deleteCommentById(fetch, id) {
+		return fetch(buildUrl(`comment/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCommentById(fetch, id) {
+		return fetch(buildUrl(`comment/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCommentForId(id, body) {
-		return this.fetch(buildUrl(`comment/id/${id}`, {id}), {method: 'PUT', body})
+	async updateCommentForId(fetch, id, body) {
+		return fetch(buildUrl(`comment/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

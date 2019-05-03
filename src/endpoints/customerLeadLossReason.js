@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerLeadLossReasons({page, pageSize, sort}) {
-		return this.fetch(buildUrl('customerLeadLossReason', {page, pageSize, sort}))
+	async getCustomerLeadLossReasons(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('customerLeadLossReason', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCustomerLeadLossReason(body) {
-		return this.fetch('customerLeadLossReason', {method: 'POST', body})
+	async createCustomerLeadLossReason(fetch, body) {
+		return fetch('customerLeadLossReason', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerLeadLossReasonCount() {
-		return this.fetch('customerLeadLossReason/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCustomerLeadLossReasonById(id) {
-		return this.fetch(buildUrl(`customerLeadLossReason/id/${id}`, {id}), {method: 'DELETE'})
+	async getCustomerLeadLossReasonCount(fetch) {
+		return fetch('customerLeadLossReason/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerLeadLossReasonById(id) {
-		return this.fetch(buildUrl(`customerLeadLossReason/id/${id}`, {id}))
+	async deleteCustomerLeadLossReasonById(fetch, id) {
+		return fetch(buildUrl(`customerLeadLossReason/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCustomerLeadLossReasonById(fetch, id) {
+		return fetch(buildUrl(`customerLeadLossReason/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCustomerLeadLossReasonForId(id, body) {
-		return this.fetch(buildUrl(`customerLeadLossReason/id/${id}`, {id}), {method: 'PUT', body})
+	async updateCustomerLeadLossReasonForId(fetch, id, body) {
+		return fetch(buildUrl(`customerLeadLossReason/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

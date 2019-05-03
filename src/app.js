@@ -57,15 +57,14 @@ module.exports = async ({username, tenant, apikey}) => {
 
 		// Resolve endpoints
 		const endpoints = './src/endpoints'
-		const modules = fs.readdirSync(path.resolve(endpoints)).map(v => {
-			const module = require(path.resolve(endpoints, v))
+		const modules = fs.readdirSync(path.resolve(endpoints))
+			.map(v => require(path.resolve(endpoints, v)))
+			.reduce((pv, cv) => ({...pv, ...cv}), {})
 
-			for (const [name, fn] of Object.entries(module)) {
-				module[name] = fn.bind(weclapp)
-			}
-
-			return module
-		}).reduce((pv, cv) => ({...pv, ...cv}), {})
+		// Bind fetch
+		for (const [name, fn] of Object.entries(modules)) {
+			modules[name] = fn.bind(null, weclapp.fetch)
+		}
 
 		return {
 			user: user && user.result,

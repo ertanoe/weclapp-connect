@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeads({page, pageSize, sort}) {
-		return this.fetch(buildUrl('lead', {page, pageSize, sort}))
+	async getLeads(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('lead', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createLead(body) {
-		return this.fetch('lead', {method: 'POST', body})
+	async createLead(fetch, body) {
+		return fetch('lead', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadCount() {
-		return this.fetch('lead/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteLeadById(id) {
-		return this.fetch(buildUrl(`lead/id/${id}`, {id}), {method: 'DELETE'})
+	async getLeadCount(fetch) {
+		return fetch('lead/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadById(id) {
-		return this.fetch(buildUrl(`lead/id/${id}`, {id}))
+	async deleteLeadById(fetch, id) {
+		return fetch(buildUrl(`lead/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getLeadById(fetch, id) {
+		return fetch(buildUrl(`lead/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,16 +48,16 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateLeadForId(id, body) {
-		return this.fetch(buildUrl(`lead/id/${id}`, {id}), {method: 'PUT', body})
+	async updateLeadForId(fetch, id, body) {
+		return fetch(buildUrl(`lead/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async convertLeadToCustomer(id) {
-		return this.fetch(buildUrl(`lead/id/${id}/convertLeadToCustomer`, {id}))
+	async convertLeadToCustomer(fetch, id) {
+		return fetch(buildUrl(`lead/id/${id}/convertLeadToCustomer`, {id}))
 	},
 
 	/**
@@ -66,8 +66,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadImage({id, scaleWidth, scaleHeight}) {
-		return this.fetch(buildUrl(`lead/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getLeadImage(fetch, {id, scaleWidth, scaleHeight}) {
+		return fetch(buildUrl(`lead/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
 	},
 
 	/**
@@ -75,7 +75,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createLeadImageForId(id, body) {
-		return this.fetch(buildUrl(`lead/id/${id}/uploadImage`, {id}), {method: 'POST', body})
+	async createLeadImageForId(fetch, id, body) {
+		return fetch(buildUrl(`lead/id/${id}/uploadImage`, {id}), {method: 'POST', body})
 	}
 }

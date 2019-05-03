@@ -8,31 +8,31 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticleSupplySources({page, pageSize, sort}) {
-		return this.fetch(buildUrl('articleSupplySource', {page, pageSize, sort}))
+	async getArticleSupplySources(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('articleSupplySource', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createArticleSupplySource(body) {
-		return this.fetch('articleSupplySource', {method: 'POST', body})
+	async createArticleSupplySource(fetch, body) {
+		return fetch('articleSupplySource', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticleSupplySourceCount() {
-		return this.fetch('articleSupplySource/count')
+	async getArticleSupplySourceCount(fetch) {
+		return fetch('articleSupplySource/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticleSupplySourceById(id) {
-		return this.fetch(buildUrl(`articleSupplySource/id/${id}`, {id}))
+	async getArticleSupplySourceById(fetch, id) {
+		return fetch(buildUrl(`articleSupplySource/id/${id}`, {id}))
 	},
 
 	/**
@@ -40,7 +40,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateArticleSupplySourceForId(id, body) {
-		return this.fetch(buildUrl(`articleSupplySource/id/${id}`, {id}), {method: 'PUT', body})
+	async updateArticleSupplySourceForId(fetch, id, body) {
+		return fetch(buildUrl(`articleSupplySource/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

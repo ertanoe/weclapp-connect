@@ -5,30 +5,30 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArchievedEmails() {
-		return this.fetch('archivedEmail')
+	async getArchievedEmails(fetch) {
+		return fetch('archivedEmail')
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArchievedEmailCount() {
-		return this.fetch('archivedEmail/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteArchievedEmailById(id) {
-		return this.fetch(buildUrl(`archivedEmail/id/${id}`, {id}), {method: 'DELETE'})
+	async getArchievedEmailCount(fetch) {
+		return fetch('archivedEmail/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArchievedEmailById(id) {
-		return this.fetch(buildUrl(`archivedEmail/id/${id}`, {id}))
+	async deleteArchievedEmailById(fetch, id) {
+		return fetch(buildUrl(`archivedEmail/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getArchievedEmailById(fetch, id) {
+		return fetch(buildUrl(`archivedEmail/id/${id}`, {id}))
 	}
 }

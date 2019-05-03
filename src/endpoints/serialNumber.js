@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSerialNumbers({page, pageSize, sort}) {
-		return this.fetch(buildUrl('serialNumber', {page, pageSize, sort}))
+	async getSerialNumbers(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('serialNumber', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSerialNumberCount() {
-		return this.fetch('serialNumber/count')
+	async getSerialNumberCount(fetch) {
+		return fetch('serialNumber/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSerialNumberById(id) {
-		return this.fetch(buildUrl(`serialNumber/id/${id}`, {id}))
+	async getSerialNumberById(fetch, id) {
+		return fetch(buildUrl(`serialNumber/id/${id}`, {id}))
 	}
 }

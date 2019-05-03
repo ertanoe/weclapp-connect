@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadSources({page, pageSize, sort}) {
-		return this.fetch(buildUrl('leadSource', {page, pageSize, sort}))
+	async getLeadSources(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('leadSource', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createLeadSource(body) {
-		return this.fetch('leadSource', {method: 'POST', body})
+	async createLeadSource(fetch, body) {
+		return fetch('leadSource', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadSourceCount() {
-		return this.fetch('leadSource/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteLeadSourceById(id) {
-		return this.fetch(buildUrl(`leadSource/id/${id}`, {id}), {method: 'DELETE'})
+	async getLeadSourceCount(fetch) {
+		return fetch('leadSource/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadSourceById(id) {
-		return this.fetch(buildUrl(`leadSource/id/${id}`, {id}))
+	async deleteLeadSourceById(fetch, id) {
+		return fetch(buildUrl(`leadSource/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getLeadSourceById(fetch, id) {
+		return fetch(buildUrl(`leadSource/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateLeadSourceForId(id, body) {
-		return this.fetch(buildUrl(`leadSource/id/${id}`, {id}), {method: 'PUT', body})
+	async updateLeadSourceForId(fetch, id, body) {
+		return fetch(buildUrl(`leadSource/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

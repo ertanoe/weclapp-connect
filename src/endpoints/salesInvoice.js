@@ -8,31 +8,31 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesInvoices({page, pageSize, sort}) {
-		return this.fetch(buildUrl('salesInvoice', {page, pageSize, sort}))
+	async getSalesInvoices(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('salesInvoice', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSalesInvoice(body) {
-		return this.fetch('salesInvoice', {method: 'POST', body})
+	async createSalesInvoice(fetch, body) {
+		return fetch('salesInvoice', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesInvoiceCount() {
-		return this.fetch('salesInvoice/count')
+	async getSalesInvoiceCount(fetch) {
+		return fetch('salesInvoice/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesInvoiceById(id) {
-		return this.fetch(buildUrl(`salesInvoice/id/${id}`, {id}))
+	async getSalesInvoiceById(fetch, id) {
+		return fetch(buildUrl(`salesInvoice/id/${id}`, {id}))
 	},
 
 	/**
@@ -40,15 +40,15 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateSalesInvoiceForId(id, body) {
-		return this.fetch(buildUrl(`salesInvoice/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSalesInvoiceForId(fetch, id, body) {
+		return fetch(buildUrl(`salesInvoice/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLatestSalesInvoicePdfById(id) {
-		return this.fetch(buildUrl(`salesInvoice/id/${id}/downloadLatestSalesInvoicePdf`, {id}))
+	async getLatestSalesInvoicePdfById(fetch, id) {
+		return fetch(buildUrl(`salesInvoice/id/${id}/downloadLatestSalesInvoicePdf`, {id}))
 	}
 }

@@ -8,23 +8,23 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTaxes({page, pageSize, sort}) {
-		return this.fetch(buildUrl('tax', {page, pageSize, sort}))
+	async getTaxes(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('tax', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createTax(body) {
-		return this.fetch('tax', {method: 'POST', body})
+	async createTax(fetch, body) {
+		return fetch('tax', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTaxCount() {
-		return this.fetch('tax/count')
+	async getTaxCount(fetch) {
+		return fetch('tax/count')
 	},
 
 	/**
@@ -34,24 +34,24 @@ module.exports = {
 	 * @param partyType
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTaxFor({dispatchCountryCode, recipientCountryCode, taxRateType, partyType}) {
-		return this.fetch(buildUrl('tax/findSalesTax', {dispatchCountryCode, recipientCountryCode, taxRateType, partyType}))
+	async getTaxFor(fetch, {dispatchCountryCode, recipientCountryCode, taxRateType, partyType}) {
+		return fetch(buildUrl('tax/findSalesTax', {dispatchCountryCode, recipientCountryCode, taxRateType, partyType}))
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async deleteTaxById(id) {
-		return this.fetch(buildUrl(`tax/id/${id}`, {id}), {method: 'DELETE'})
+	async deleteTaxById(fetch, id) {
+		return fetch(buildUrl(`tax/id/${id}`, {id}), {method: 'DELETE'})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTaxById(id) {
-		return this.fetch(buildUrl(`tax/id/${id}`, {id}))
+	async getTaxById(fetch, id) {
+		return fetch(buildUrl(`tax/id/${id}`, {id}))
 	},
 
 	/**
@@ -59,7 +59,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateTaxForId(id, body) {
-		return this.fetch(buildUrl(`tax/id/${id}`, {id}), {method: 'PUT', body})
+	async updateTaxForId(fetch, id, body) {
+		return fetch(buildUrl(`tax/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

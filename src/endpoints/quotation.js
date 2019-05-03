@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getQuotations({page, pageSize, sort}) {
-		return this.fetch(buildUrl('quotation', {page, pageSize, sort}))
+	async getQuotations(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('quotation', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createQuotation(body) {
-		return this.fetch('quotation', {method: 'POST', body})
+	async createQuotation(fetch, body) {
+		return fetch('quotation', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getQuotationCount() {
-		return this.fetch('quotation/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteQuotationById(id) {
-		return this.fetch(buildUrl(`quotation/id/${id}`, {id}), {method: 'DELETE'})
+	async getQuotationCount(fetch) {
+		return fetch('quotation/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getQuotationById(id) {
-		return this.fetch(buildUrl(`quotation/id/${id}`, {id}))
+	async deleteQuotationById(fetch, id) {
+		return fetch(buildUrl(`quotation/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getQuotationById(fetch, id) {
+		return fetch(buildUrl(`quotation/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,15 +48,15 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateQuotationForId(id, body) {
-		return this.fetch(buildUrl(`quotation/id/${id}`, {id}), {method: 'PUT', body})
+	async updateQuotationForId(fetch, id, body) {
+		return fetch(buildUrl(`quotation/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLatestQuotationPdfById(id) {
-		return this.fetch(buildUrl(`quotation/id/${id}/downloadLatestQuotationPdf`, {id}))
+	async getLatestQuotationPdfById(fetch, id) {
+		return fetch(buildUrl(`quotation/id/${id}/downloadLatestQuotationPdf`, {id}))
 	}
 }

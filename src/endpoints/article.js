@@ -9,38 +9,38 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*>}
 	 */
-	async getArticles({page, pageSize = 50, sort}) {
-		return this.fetch(buildUrl('article', {page, pageSize, sort}))
+	async getArticles(fetch, {page, pageSize = 50, sort}) {
+		return fetch(buildUrl('article', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<void>}
 	 */
-	async createArticle(body) {
-		return this.fetch('article', {method: 'POST', body})
+	async createArticle(fetch, body) {
+		return fetch('article', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async getArticleCount() {
-		return this.fetch('article/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
-	 */
-	async deleteArticleById(id) {
-		return this.fetch(`article/id/${id}`, {method: 'DELETE'})
+	async getArticleCount(fetch) {
+		return fetch('article/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async getArticleById(id) {
-		return this.fetch(`article/id/${id}`)
+	async deleteArticleById(fetch, id) {
+		return fetch(`article/id/${id}`, {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
+	 */
+	async getArticleById(fetch, id) {
+		return fetch(`article/id/${id}`)
 	},
 
 	/**
@@ -48,8 +48,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<void>}
 	 */
-	async updateArticleById({id, body}) {
-		return this.fetch(`article/id/${id}`, {method: 'PUT', body})
+	async updateArticleById(fetch, {id, body}) {
+		return fetch(`article/id/${id}`, {method: 'PUT', body})
 	},
 
 	/**
@@ -60,8 +60,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async getArticleImage({id, articleImageId, preview = false, scaleWidth, scaleHeight}) {
-		return this.fetch(buildUrl(`article/id/${id}/downloadArticleImage`, {articleImageId, preview, scaleHeight, scaleWidth}))
+	async getArticleImage(fetch, {id, articleImageId, preview = false, scaleWidth, scaleHeight}) {
+		return fetch(buildUrl(`article/id/${id}/downloadArticleImage`, {articleImageId, preview, scaleHeight, scaleWidth}))
 	},
 
 	/**
@@ -71,7 +71,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async uploadArticleImage({id, name, mainImage}, body) {
-		return this.fetch(buildUrl(`article/id/${id}/uploadArticleImage`, {name, mainImage}), {method: 'POST', body})
+	async uploadArticleImage(fetch, {id, name, mainImage}, body) {
+		return fetch(buildUrl(`article/id/${id}/uploadArticleImage`, {name, mainImage}), {method: 'POST', body})
 	}
 }

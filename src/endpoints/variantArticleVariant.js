@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticleVariants({page, pageSize, sort}) {
-		return this.fetch(buildUrl('variantArticleVariant', {page, pageSize, sort}))
+	async getVariantArticleVariants(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('variantArticleVariant', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticleVariantCount() {
-		return this.fetch('variantArticleVariant/count')
+	async getVariantArticleVariantCount(fetch) {
+		return fetch('variantArticleVariant/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticleVariantById(id) {
-		return this.fetch(buildUrl(`variantArticleVariant/id/${id}`, {id}))
+	async getVariantArticleVariantById(fetch, id) {
+		return fetch(buildUrl(`variantArticleVariant/id/${id}`, {id}))
 	}
 }

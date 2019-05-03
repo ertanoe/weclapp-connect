@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getUnits({page, pageSize, sort}) {
-		return this.fetch(buildUrl('unit', {page, pageSize, sort}))
+	async getUnits(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('unit', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createUnit(body) {
-		return this.fetch('unit', {method: 'POST', body})
+	async createUnit(fetch, body) {
+		return fetch('unit', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getUnitCount() {
-		return this.fetch('unit/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteUnitById(id) {
-		return this.fetch(buildUrl(`unit/id/${id}`, {id}), {method: 'DELETE'})
+	async getUnitCount(fetch) {
+		return fetch('unit/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getUnitById(id) {
-		return this.fetch(buildUrl(`unit/id/${id}`, {id}))
+	async deleteUnitById(fetch, id) {
+		return fetch(buildUrl(`unit/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getUnitById(fetch, id) {
+		return fetch(buildUrl(`unit/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateUnitForId(id, body) {
-		return this.fetch(buildUrl(`unit/id/${id}`, {id}), {method: 'PUT', body})
+	async updateUnitForId(fetch, id, body) {
+		return fetch(buildUrl(`unit/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

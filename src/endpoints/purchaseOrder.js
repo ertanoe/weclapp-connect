@@ -8,40 +8,31 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getPurchaseOrders({page, pageSize, sort}) {
-		return this.fetch(buildUrl('purchaseOrder', {page, pageSize, sort}))
+	async getPurchaseOrders(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('purchaseOrder', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createPurchaseOrder(body) {
-		return this.fetch('purchaseOrder', {method: 'POST', body})
+	async createPurchaseOrder(fetch, body) {
+		return fetch('purchaseOrder', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getPurchaseOrderCount() {
-		return this.fetch('purchaseOrder/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async getPurchaseOrderById(id) {
-		return this.fetch(buildUrl(`purchaseOrder/id/${id}`, {id}))
+	async getPurchaseOrderCount(fetch) {
+		return fetch('purchaseOrder/count')
 	},
 
 	/**
 	 * @param id
-	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updatePurchaseOrder(id, body) {
-		return this.fetch(buildUrl(`purchaseOrder/id/${id}`, {id}), {method: 'PUT', body})
+	async getPurchaseOrderById(fetch, id) {
+		return fetch(buildUrl(`purchaseOrder/id/${id}`, {id}))
 	},
 
 	/**
@@ -49,7 +40,16 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createPurchaseOrder(id, body) {
-		return this.fetch(buildUrl(`purchaseOrder/id/${id}/createIncomingGoods`, {id}), {method: 'POST', body})
+	async updatePurchaseOrder(fetch, id, body) {
+		return fetch(buildUrl(`purchaseOrder/id/${id}`, {id}), {method: 'PUT', body})
+	},
+
+	/**
+	 * @param id
+	 * @param body
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async createPurchaseOrder(fetch, id, body) {
+		return fetch(buildUrl(`purchaseOrder/id/${id}/createIncomingGoods`, {id}), {method: 'POST', body})
 	}
 }

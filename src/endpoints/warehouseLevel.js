@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseLevels({page, pageSize, sort}) {
-		return this.fetch(buildUrl('warehouseLevel', {page, pageSize, sort}))
+	async getWarehouseLevels(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('warehouseLevel', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseLevelCount() {
-		return this.fetch('warehouseLevel/count')
+	async getWarehouseLevelCount(fetch) {
+		return fetch('warehouseLevel/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseLevelById(id) {
-		return this.fetch(buildUrl(`warehouseLevel/id/${id}`, {id}))
+	async getWarehouseLevelById(fetch, id) {
+		return fetch(buildUrl(`warehouseLevel/id/${id}`, {id}))
 	}
 }

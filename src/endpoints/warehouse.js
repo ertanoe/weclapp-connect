@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouses({page, pageSize, sort}) {
-		return this.fetch(buildUrl('warehouse', {page, pageSize, sort}))
+	async getWarehouses(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('warehouse', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseCount() {
-		return this.fetch('warehouse/count')
+	async getWarehouseCount(fetch) {
+		return fetch('warehouse/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseById(id) {
-		return this.fetch(buildUrl(`warehouse/id/${id}`, {id}))
+	async getWarehouseById(fetch, id) {
+		return fetch(buildUrl(`warehouse/id/${id}`, {id}))
 	}
 }

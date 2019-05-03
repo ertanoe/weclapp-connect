@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getOpportunityWinLossReasons({page, pageSize, sort}) {
-		return this.fetch(buildUrl('opportunityWinLossReason', {page, pageSize, sort}))
+	async getOpportunityWinLossReasons(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('opportunityWinLossReason', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createOpportunityWinLossReason(body) {
-		return this.fetch('opportunityWinLossReason', {method: 'POST', body})
+	async createOpportunityWinLossReason(fetch, body) {
+		return fetch('opportunityWinLossReason', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getOpportunityWinLossReasonCount() {
-		return this.fetch('opportunityWinLossReason/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteOpportunityWinLossReasonById(id) {
-		return this.fetch(buildUrl(`opportunityWinLossReason/id/${id}`, {id}), {method: 'DELETE'})
+	async getOpportunityWinLossReasonCount(fetch) {
+		return fetch('opportunityWinLossReason/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getOpportunityWinLossReasonById(id) {
-		return this.fetch(buildUrl(`opportunityWinLossReason/id/${id}`, {id}))
+	async deleteOpportunityWinLossReasonById(fetch, id) {
+		return fetch(buildUrl(`opportunityWinLossReason/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getOpportunityWinLossReasonById(fetch, id) {
+		return fetch(buildUrl(`opportunityWinLossReason/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateOpportunityWinLossReasonForId(id, body) {
-		return this.fetch(buildUrl(`opportunityWinLossReason/id/${id}`, {id}), {method: 'PUT', body})
+	async updateOpportunityWinLossReasonForId(fetch, id, body) {
+		return fetch(buildUrl(`opportunityWinLossReason/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

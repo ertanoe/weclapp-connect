@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getBatchNumbers({page, pageSize, sort}) {
-		return this.fetch(buildUrl('batchNumber', {page, pageSize, sort}))
+	async getBatchNumbers(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('batchNumber', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getBatchNumberCount() {
-		return this.fetch('batchNumber/count')
+	async getBatchNumberCount(fetch) {
+		return fetch('batchNumber/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getBatchNumberById(id) {
-		return this.fetch(buildUrl(`batchNumber/id/${id}`, {id}))
+	async getBatchNumberById(fetch, id) {
+		return fetch(buildUrl(`batchNumber/id/${id}`, {id}))
 	}
 }

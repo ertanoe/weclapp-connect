@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesStages({page, pageSize, sort}) {
-		return this.fetch(buildUrl('salesStage', {page, pageSize, sort}))
+	async getSalesStages(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('salesStage', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSalesStage(body) {
-		return this.fetch('salesStage', {method: 'POST', body})
+	async createSalesStage(fetch, body) {
+		return fetch('salesStage', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesStageCount() {
-		return this.fetch('salesStage/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteSalesStageById(id) {
-		return this.fetch(buildUrl(`salesStage/id/${id}`, {id}), {method: 'DELETE'})
+	async getSalesStageCount(fetch) {
+		return fetch('salesStage/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesStageById(id) {
-		return this.fetch(buildUrl(`salesStage/id/${id}`, {id}))
+	async deleteSalesStageById(fetch, id) {
+		return fetch(buildUrl(`salesStage/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getSalesStageById(fetch, id) {
+		return fetch(buildUrl(`salesStage/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateSalesStageForId(id, body) {
-		return this.fetch(buildUrl(`salesStage/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSalesStageForId(fetch, id, body) {
+		return fetch(buildUrl(`salesStage/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

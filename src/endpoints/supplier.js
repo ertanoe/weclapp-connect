@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSuppliers({page, pageSize, sort}) {
-		return this.fetch(buildUrl('supplier', {page, pageSize, sort}))
+	async getSuppliers(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('supplier', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSupplier(body) {
-		return this.fetch('supplier', {method: 'POST', body})
+	async createSupplier(fetch, body) {
+		return fetch('supplier', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSuppliers() {
-		return this.fetch('supplier/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteSupplierById(id) {
-		return this.fetch(buildUrl(`supplier/id/${id}`, {id}), {method: 'DELETE'})
+	async getSuppliers(fetch) {
+		return fetch('supplier/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSupplierById(id) {
-		return this.fetch(buildUrl(`supplier/id/${id}`, {id}))
+	async deleteSupplierById(fetch, id) {
+		return fetch(buildUrl(`supplier/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getSupplierById(fetch, id) {
+		return fetch(buildUrl(`supplier/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,8 +48,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateSupplierForId(id, body) {
-		return this.fetch(buildUrl(`supplier/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSupplierForId(fetch, id, body) {
+		return fetch(buildUrl(`supplier/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
@@ -58,8 +58,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSupplierImage({id, scaleWidth, scaleHeight}) {
-		return this.fetch(buildUrl(`supplier/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getSupplierImage(fetch, {id, scaleWidth, scaleHeight}) {
+		return fetch(buildUrl(`supplier/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
 	},
 
 	/**
@@ -67,7 +67,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSupplierImageForId(id, body) {
-		return this.fetch(buildUrl(`supplier/id/${id}/uploadImage`, {id}), {method: 'POST', body})
+	async createSupplierImageForId(fetch, id, body) {
+		return fetch(buildUrl(`supplier/id/${id}/uploadImage`, {id}), {method: 'POST', body})
 	}
 }

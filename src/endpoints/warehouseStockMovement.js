@@ -8,46 +8,46 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseStockMovements({page, pageSize, sort}) {
-		return this.fetch(buildUrl('warehouseStockMovement', {page, pageSize, sort}))
+	async getWarehouseStockMovements(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('warehouseStockMovement', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createBookIncomingMovement(body) {
-		return this.fetch('warehouseStockMovement/bookIncomingMovement', {method: 'POST', body})
+	async createBookIncomingMovement(fetch, body) {
+		return fetch('warehouseStockMovement/bookIncomingMovement', {method: 'POST', body})
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createBookOutgoingMovement(body) {
-		return this.fetch('warehouseStockMovement/bookOutgoingMovement', {method: 'POST', body})
+	async createBookOutgoingMovement(fetch, body) {
+		return fetch('warehouseStockMovement/bookOutgoingMovement', {method: 'POST', body})
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createBookTransferMovement(body) {
-		return this.fetch('warehouseStockMovement/bookTransferMovement', {method: 'POST', body})
+	async createBookTransferMovement(fetch, body) {
+		return fetch('warehouseStockMovement/bookTransferMovement', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseStockMovementCount() {
-		return this.fetch('warehouseStockMovement/count')
+	async getWarehouseStockMovementCount(fetch) {
+		return fetch('warehouseStockMovement/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseStockMovementById(id) {
-		return this.fetch(buildUrl(`warehouseStockMovement/id/${id}`, {id}))
+	async getWarehouseStockMovementById(fetch, id) {
+		return fetch(buildUrl(`warehouseStockMovement/id/${id}`, {id}))
 	}
 }

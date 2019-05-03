@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomsTariffNumbers({page, pageSize, sort}) {
-		return this.fetch(buildUrl('customsTariffNumber', {page, pageSize, sort}))
+	async getCustomsTariffNumbers(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('customsTariffNumber', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCustomsTariffNumber(body) {
-		return this.fetch('customsTariffNumber', {method: 'POST', body})
+	async createCustomsTariffNumber(fetch, body) {
+		return fetch('customsTariffNumber', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomsTariffNumberCount() {
-		return this.fetch('customsTariffNumber/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCustomsTariffNumberById(id) {
-		return this.fetch(buildUrl(`customsTariffNumber/id/${id}`, {id}), {method: 'DELETE'})
+	async getCustomsTariffNumberCount(fetch) {
+		return fetch('customsTariffNumber/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomsTariffNumberById(id) {
-		return this.fetch(buildUrl(`customsTariffNumber/id/${id}`, {id}))
+	async deleteCustomsTariffNumberById(fetch, id) {
+		return fetch(buildUrl(`customsTariffNumber/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCustomsTariffNumberById(fetch, id) {
+		return fetch(buildUrl(`customsTariffNumber/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCustomsTariffNumberForId(id, body) {
-		return this.fetch(buildUrl(`customsTariffNumber/id/${id}`, {id}), {method: 'PUT', body})
+	async updateCustomsTariffNumberForId(fetch, id, body) {
+		return fetch(buildUrl(`customsTariffNumber/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

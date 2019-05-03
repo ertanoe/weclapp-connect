@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticleCategories({page, pageSize, sort}) {
-		return this.fetch(buildUrl('articleCategory', {page, pageSize, sort}))
+	async getArticleCategories(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('articleCategory', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createArticleCategory(body) {
-		return this.fetch('articleCategory', {method: 'POST', body})
+	async createArticleCategory(fetch, body) {
+		return fetch('articleCategory', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticleCategoryCount() {
-		return this.fetch('articleCategory/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteArticleCategoryById(id) {
-		return this.fetch(buildUrl(`articleCategory/id/${id}`, {id}), {method: 'DELETE'})
+	async getArticleCategoryCount(fetch) {
+		return fetch('articleCategory/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticleCategoryById(id) {
-		return this.fetch(buildUrl(`articleCategory/id/${id}`, {id}))
+	async deleteArticleCategoryById(fetch, id) {
+		return fetch(buildUrl(`articleCategory/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getArticleCategoryById(fetch, id) {
+		return fetch(buildUrl(`articleCategory/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateArticleCategoryForId(id, body) {
-		return this.fetch(buildUrl(`articleCategory/id/${id}`, {id}), {method: 'PUT', body})
+	async updateArticleCategoryForId(fetch, id, body) {
+		return fetch(buildUrl(`articleCategory/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

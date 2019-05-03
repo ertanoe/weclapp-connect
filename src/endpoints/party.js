@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getParties({page, pageSize, sort}) {
-		return this.fetch(buildUrl('party', {page, pageSize, sort}))
+	async getParties(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('party', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getPartyCount() {
-		return this.fetch('party/count')
+	async getPartyCount(fetch) {
+		return fetch('party/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getPartyById(id) {
-		return this.fetch(buildUrl(`party/id/${id}`, {id}))
+	async getPartyById(fetch, id) {
+		return fetch(buildUrl(`party/id/${id}`, {id}))
 	}
 }

@@ -8,22 +8,22 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticlePrices({page, pageSize, sort}) {
-		return this.fetch(buildUrl('articlePrice', {page, pageSize, sort}))
+	async getArticlePrices(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('articlePrice', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticlePriceCount() {
-		return this.fetch('articlePrice/count')
+	async getArticlePriceCount(fetch) {
+		return fetch('articlePrice/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getArticlePriceById(id) {
-		return this.fetch(buildUrl(`articlePrice/id/${id}`, {id}))
+	async getArticlePriceById(fetch, id) {
+		return fetch(buildUrl(`articlePrice/id/${id}`, {id}))
 	}
 }

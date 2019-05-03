@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomers({page, pageSize, sort}) {
-		return this.fetch(buildUrl('customer', {page, pageSize, sort}))
+	async getCustomers(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('customer', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCustomer(body) {
-		return this.fetch('customer', {method: 'POST', body})
+	async createCustomer(fetch, body) {
+		return fetch('customer', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerCount() {
-		return this.fetch('customer/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCustomerById(id) {
-		return this.fetch(buildUrl(`customer/id/${id}`, {id}), {method: 'DELETE'})
+	async getCustomerCount(fetch) {
+		return fetch('customer/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerById(id) {
-		return this.fetch(buildUrl(`customer/id/${id}`, {id}))
+	async deleteCustomerById(fetch, id) {
+		return fetch(buildUrl(`customer/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCustomerById(fetch, id) {
+		return fetch(buildUrl(`customer/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,8 +48,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCustomerForId(id, body) {
-		return this.fetch(buildUrl(`customer/id/${id}`, {id}), {method: 'PUT', body})
+	async updateCustomerForId(fetch, id, body) {
+		return fetch(buildUrl(`customer/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
@@ -58,8 +58,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerImageById({id, scaleWidth, scaleHeight}) {
-		return this.fetch(buildUrl(`customer/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getCustomerImageById(fetch, {id, scaleWidth, scaleHeight}) {
+		return fetch(buildUrl(`customer/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
 	},
 
 	/**
@@ -67,7 +67,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCustomerForId(id, body) {
-		return this.fetch(buildUrl(`customer/id/${id}/uploadImage`, {id}), {method: 'POST', body})
+	async createCustomerForId(fetch, id, body) {
+		return fetch(buildUrl(`customer/id/${id}/uploadImage`, {id}), {method: 'POST', body})
 	}
 }

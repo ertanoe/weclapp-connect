@@ -8,29 +8,29 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCurrencies({page, pageSize, sort}) {
-		return this.fetch(buildUrl('currency', {page, pageSize, sort}))
+	async getCurrencies(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('currency', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCompanyCurrency() {
-		return this.fetch('currency/companyCurrency')
+	async getCompanyCurrency(fetch) {
+		return fetch('currency/companyCurrency')
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCurrencyCount() {
-		return this.fetch('currency/count')
+	async getCurrencyCount(fetch) {
+		return fetch('currency/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCurrencyById(id) {
-		return this.fetch(buildUrl(`currency/id/${id}`, {id}))
+	async getCurrencyById(fetch, id) {
+		return fetch(buildUrl(`currency/id/${id}`, {id}))
 	}
 }

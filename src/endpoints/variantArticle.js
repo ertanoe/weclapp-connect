@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticles({page, pageSize, sort}) {
-		return this.fetch(buildUrl('variantArticle', {page, pageSize, sort}))
+	async getVariantArticles(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('variantArticle', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createVariantArticle(body) {
-		return this.fetch('variantArticle', {method: 'POST', body})
+	async createVariantArticle(fetch, body) {
+		return fetch('variantArticle', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticleCount() {
-		return this.fetch('variantArticle/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteVariantArticleById(id) {
-		return this.fetch(buildUrl(`variantArticle/id/${id}`, {id}), {method: 'DELETE'})
+	async getVariantArticleCount(fetch) {
+		return fetch('variantArticle/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticleById(id) {
-		return this.fetch(buildUrl(`variantArticle/id/${id}`, {id}))
+	async deleteVariantArticleById(fetch, id) {
+		return fetch(buildUrl(`variantArticle/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getVariantArticleById(fetch, id) {
+		return fetch(buildUrl(`variantArticle/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateVariantArticleForId(id, body) {
-		return this.fetch(buildUrl(`variantArticle/id/${id}`, {id}), {method: 'PUT', body})
+	async updateVariantArticleForId(fetch, id, body) {
+		return fetch(buildUrl(`variantArticle/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

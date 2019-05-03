@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCompanySizes({page, pageSize, sort}) {
-		return this.fetch(buildUrl('companySize', {page, pageSize, sort}))
+	async getCompanySizes(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('companySize', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCompanySize(body) {
-		return this.fetch('companySize', {method: 'POST', body})
+	async createCompanySize(fetch, body) {
+		return fetch('companySize', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCompanySizeCount() {
-		return this.fetch('companySize/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCompanySizeById(id) {
-		return this.fetch(buildUrl(`companySize/id/${id}`, {id}), {method: 'DELETE'})
+	async getCompanySizeCount(fetch) {
+		return fetch('companySize/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCompanySizeById(id) {
-		return this.fetch(buildUrl(`companySize/id/${id}`, {id}))
+	async deleteCompanySizeById(fetch, id) {
+		return fetch(buildUrl(`companySize/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCompanySizeById(fetch, id) {
+		return fetch(buildUrl(`companySize/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCompanySizeForId(id, body) {
-		return this.fetch(buildUrl(`companySize/id/${id}`, {id}), {method: 'PUT', body})
+	async updateCompanySizeForId(fetch, id, body) {
+		return fetch(buildUrl(`companySize/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

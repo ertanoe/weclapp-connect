@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getManufacturers({page, pageSize, sort}) {
-		return this.fetch(buildUrl('manufacturer', {page, pageSize, sort}))
+	async getManufacturers(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('manufacturer', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createManufacturer(body) {
-		return this.fetch('manufacturer', {method: 'POST', body})
+	async createManufacturer(fetch, body) {
+		return fetch('manufacturer', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getManufacturerCount() {
-		return this.fetch('manufacturer/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteManufacturerById(id) {
-		return this.fetch(buildUrl(`manufacturer/id/${id}`, {id}), {method: 'DELETE'})
+	async getManufacturerCount(fetch) {
+		return fetch('manufacturer/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getManufacturerById(id) {
-		return this.fetch(buildUrl(`manufacturer/id/${id}`, {id}))
+	async deleteManufacturerById(fetch, id) {
+		return fetch(buildUrl(`manufacturer/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getManufacturerById(fetch, id) {
+		return fetch(buildUrl(`manufacturer/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateManufacturerForId(id, body) {
-		return this.fetch(buildUrl(`manufacturer/id/${id}`, {id}), {method: 'PUT', body})
+	async updateManufacturerForId(fetch, id, body) {
+		return fetch(buildUrl(`manufacturer/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

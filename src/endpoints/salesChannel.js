@@ -5,7 +5,7 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesChannel() {
-		return this.fetch('salesChannel/activeSalesChannels')
+	async getSalesChannel(fetch) {
+		return fetch('salesChannel/activeSalesChannels')
 	}
 }

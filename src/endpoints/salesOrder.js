@@ -8,23 +8,23 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesOrders({page, pageSize, sort}) {
-		return this.fetch(buildUrl('salesOrder', {page, pageSize, sort}))
+	async getSalesOrders(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('salesOrder', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSalesOrder(body) {
-		return this.fetch('salesOrder', {method: 'POST', body})
+	async createSalesOrder(fetch, body) {
+		return fetch('salesOrder', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesOrderCount() {
-		return this.fetch('salesOrder/count')
+	async getSalesOrderCount(fetch) {
+		return fetch('salesOrder/count')
 	},
 
 	/**
@@ -32,25 +32,16 @@ module.exports = {
 	 * @param responsibleUserId
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesOrderForCustomer({customerId, responsibleUserId}) {
-		return this.fetch(buildUrl('salesOrder/defaultValuesForCreate', {customerId, responsibleUserId}))
+	async getSalesOrderForCustomer(fetch, {customerId, responsibleUserId}) {
+		return fetch(buildUrl('salesOrder/defaultValuesForCreate', {customerId, responsibleUserId}))
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesOrderById(id) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}`, {id}))
-	},
-
-	/**
-	 * @param id
-	 * @param body
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async updateSalesOrderForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}`, {id}), {method: 'PUT', body})
+	async getSalesOrderById(fetch, id) {
+		return fetch(buildUrl(`salesOrder/id/${id}`, {id}))
 	},
 
 	/**
@@ -58,8 +49,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCancelOrManualSalesOrderForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/cancelOrManuallyClose`, {id}), {method: 'POST', body})
+	async updateSalesOrderForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
@@ -67,8 +58,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createAdvancePaymentRequestSalesOrderForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/createAdvancePaymentRequest`, {id}), {method: 'POST', body})
+	async createCancelOrManualSalesOrderForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/cancelOrManuallyClose`, {id}), {method: 'POST', body})
 	},
 
 	/**
@@ -76,8 +67,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCustomerReturnForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/createCustomerReturn`, {id}), {method: 'POST', body})
+	async createAdvancePaymentRequestSalesOrderForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/createAdvancePaymentRequest`, {id}), {method: 'POST', body})
 	},
 
 	/**
@@ -85,8 +76,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createPartPaymentInvoiceForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/createPartPaymentInvoice`, {id}), {method: 'POST', body})
+	async createCustomerReturnForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/createCustomerReturn`, {id}), {method: 'POST', body})
 	},
 
 	/**
@@ -94,8 +85,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createPrepaymentInvoiceForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/createPrepaymentInvoice`, {id}), {method: 'POST', body})
+	async createPartPaymentInvoiceForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/createPartPaymentInvoice`, {id}), {method: 'POST', body})
 	},
 
 	/**
@@ -103,8 +94,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSalesInvoiceForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/createSalesInvoice`, {id}), {method: 'POST', body})
+	async createPrepaymentInvoiceForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/createPrepaymentInvoice`, {id}), {method: 'POST', body})
 	},
 
 	/**
@@ -112,16 +103,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createShipmentForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/createShipment`, {id}), {method: 'POST', body})
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async getLatestOrderConfirmationPdfId(id) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/downloadLatestOrderConfirmationPdf`, {id}))
+	async createSalesInvoiceForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/createSalesInvoice`, {id}), {method: 'POST', body})
 	},
 
 	/**
@@ -129,7 +112,24 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createManualCloseSalesOrderForId(id, body) {
-		return this.fetch(buildUrl(`salesOrder/id/${id}/manuallyClose`, {id}), {method: 'POST', body})
+	async createShipmentForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/createShipment`, {id}), {method: 'POST', body})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getLatestOrderConfirmationPdfId(fetch, id) {
+		return fetch(buildUrl(`salesOrder/id/${id}/downloadLatestOrderConfirmationPdf`, {id}))
+	},
+
+	/**
+	 * @param id
+	 * @param body
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async createManualCloseSalesOrderForId(fetch, id, body) {
+		return fetch(buildUrl(`salesOrder/id/${id}/manuallyClose`, {id}), {method: 'POST', body})
 	}
 }

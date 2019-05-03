@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerTopics({page, pageSize, sort}) {
-		return this.fetch(buildUrl('customerTopic', {page, pageSize, sort}))
+	async getCustomerTopics(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('customerTopic', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createCustomerTopic(body) {
-		return this.fetch('customerTopic', {method: 'POST', body})
+	async createCustomerTopic(fetch, body) {
+		return fetch('customerTopic', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerTopicCount() {
-		return this.fetch('customerTopic/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteCustomerTopicById(id) {
-		return this.fetch(buildUrl(`customerTopic/id/${id}`, {id}), {method: 'DELETE'})
+	async getCustomerTopicCount(fetch) {
+		return fetch('customerTopic/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerTopicById(id) {
-		return this.fetch(buildUrl(`customerTopic/id/${id}`, {id}))
+	async deleteCustomerTopicById(fetch, id) {
+		return fetch(buildUrl(`customerTopic/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCustomerTopicById(fetch, id) {
+		return fetch(buildUrl(`customerTopic/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateCustomerTopicForId(id, body) {
-		return this.fetch(buildUrl(`customerTopic/id/${id}`, {id}), {method: 'PUT', body})
+	async updateCustomerTopicForId(fetch, id, body) {
+		return fetch(buildUrl(`customerTopic/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }

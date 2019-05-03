@@ -8,31 +8,31 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getProductionOrders({page, pageSize, sort}) {
-		return this.fetch(buildUrl('productionOrder', {page, pageSize, sort}))
+	async getProductionOrders(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('productionOrder', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createProductionOrder(body) {
-		return this.fetch('productionOrder', {method: 'POST', body})
+	async createProductionOrder(fetch, body) {
+		return fetch('productionOrder', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getProductionOrderCount() {
-		return this.fetch('productionOrder/count')
+	async getProductionOrderCount(fetch) {
+		return fetch('productionOrder/count')
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createProductionOrder(body) {
-		return this.fetch('productionOrder/fastProductionBooking', {method: 'POST', body})
+	async createProductionOrder(fetch, body) {
+		return fetch('productionOrder/fastProductionBooking', {method: 'POST', body})
 	},
 
 	/**
@@ -40,16 +40,16 @@ module.exports = {
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async deleteProductionOrderById(id) {
-		return this.fetch(buildUrl(`productionOrder/id/${id}`, {id}), {method: 'DELETE'})
+	async deleteProductionOrderById(fetch, id) {
+		return fetch(buildUrl(`productionOrder/id/${id}`, {id}), {method: 'DELETE'})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getProductionOrderById(id) {
-		return this.fetch(buildUrl(`productionOrder/id/${id}`, {id}))
+	async getProductionOrderById(fetch, id) {
+		return fetch(buildUrl(`productionOrder/id/${id}`, {id}))
 	},
 
 	/**
@@ -57,15 +57,15 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateProductionOrderForId(id, body) {
-		return this.fetch(buildUrl(`productionOrder/id/${id}`, {id}), {method: 'PUT', body})
+	async updateProductionOrderForId(fetch, id, body) {
+		return fetch(buildUrl(`productionOrder/id/${id}`, {id}), {method: 'PUT', body})
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLatestProductionOrderPdfProductionOrderById(id) {
-		return this.fetch(buildUrl(`productionOrder/id/${id}/downloadLatestProductionOrderPdf`, {id}))
+	async getLatestProductionOrderPdfProductionOrderById(fetch, id) {
+		return fetch(buildUrl(`productionOrder/id/${id}/downloadLatestProductionOrderPdf`, {id}))
 	}
 }

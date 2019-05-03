@@ -8,39 +8,39 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSectors({page, pageSize, sort}) {
-		return this.fetch(buildUrl('sector', {page, pageSize, sort}))
+	async getSectors(fetch, {page, pageSize, sort}) {
+		return fetch(buildUrl('sector', {page, pageSize, sort}))
 	},
 
 	/**
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createSector(body) {
-		return this.fetch('sector', {method: 'POST', body})
+	async createSector(fetch, body) {
+		return fetch('sector', {method: 'POST', body})
 	},
 
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSectorCount() {
-		return this.fetch('sector/count')
-	},
-
-	/**
-	 * @param id
-	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
-	 */
-	async deleteSectorById(id) {
-		return this.fetch(buildUrl(`sector/id/${id}`, {id}), {method: 'DELETE'})
+	async getSectorCount(fetch) {
+		return fetch('sector/count')
 	},
 
 	/**
 	 * @param id
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSectorById(id) {
-		return this.fetch(buildUrl(`sector/id/${id}`, {id}))
+	async deleteSectorById(fetch, id) {
+		return fetch(buildUrl(`sector/id/${id}`, {id}), {method: 'DELETE'})
+	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getSectorById(fetch, id) {
+		return fetch(buildUrl(`sector/id/${id}`, {id}))
 	},
 
 	/**
@@ -48,7 +48,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async updateSectorForId(id, body) {
-		return this.fetch(buildUrl(`sector/id/${id}`, {id}), {method: 'PUT', body})
+	async updateSectorForId(fetch, id, body) {
+		return fetch(buildUrl(`sector/id/${id}`, {id}), {method: 'PUT', body})
 	}
 }
