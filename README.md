@@ -50,7 +50,7 @@ const weclapp = require('@weclapp/connect')
 	})
 	
 	// Prints time-records to the console
-	console.log(await user.request('timeRecord'))
+	console.log(await user.fetch('timeRecord'))
 })()
 ```
 
