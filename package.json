@@ -1,14 +1,14 @@
 {
 	"name": "@weclapp/connect",
 	"version": "0.0.1",
-	"description": "Weclapp API wrapper",
+	"description": "weclapp REST API client for nodejs",
 	"main": "src/app.js",
 	"scripts": {
 		"test": "mocha --timeout 5000",
 		"lint": "eslint ./src/*.js",
 		"lint:fix": "eslint --fix --env browser,node ./src/*.js"
 	},
-	"author": "sudhir",
+	"author": "weclapp",
 	"license": "MIT",
 	"engines": {
 		"node": ">=8.0.0"
