@@ -18,8 +18,6 @@ module.exports = async ({username, tenant, apikey}) => {
 	}
 
 	const weclapp = {
-		user: null,
-
 		/**
 		 * Makes a request to the weclapp rest-api
 		 * @param endpoint Endpoint
@@ -52,11 +50,8 @@ module.exports = async ({username, tenant, apikey}) => {
 		}
 	}
 
-	// Check credentials
-	return weclapp.fetch('user/currentUser').then(user => {
-
 		// Resolve endpoints
-		const endpoints = './src/endpoints'
+		const endpoints = __dirname+'/endpoints'
 		const modules = fs.readdirSync(path.resolve(endpoints))
 			.map(v => require(path.resolve(endpoints, v)))
 			.reduce((pv, cv) => ({...pv, ...cv}), {})
@@ -67,9 +62,7 @@ module.exports = async ({username, tenant, apikey}) => {
 		}
 
 		return {
-			user: user && user.result,
 			...weclapp,
 			...modules
 		}
-	})
 }

@@ -1,3 +1,6 @@
+const { URLSearchParams } = require('url');
+global.URLSearchParams = URLSearchParams
+
 module.exports = {
 
 	/**
