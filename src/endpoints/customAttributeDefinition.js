@@ -26,4 +26,12 @@ module.exports = {
 	async getCustomAttributeDefinitionById(fetch, id) {
 		return fetch(buildUrl(`customAttributeDefinition/id/${id}`, {id}))
 	}
+
+	/**
+	 * @param id's string
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getCustomAttributeDefinitionByIds(fetch, ids) {
+		return fetch(buildUrl(`customAttributeDefinition?id-in=[${ids}]`))
+	}
 }
