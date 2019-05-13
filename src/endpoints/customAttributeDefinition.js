@@ -25,7 +25,7 @@ module.exports = {
 	 */
 	async getCustomAttributeDefinitionById(fetch, id) {
 		return fetch(buildUrl(`customAttributeDefinition/id/${id}`, {id}))
-	}
+	},
 
 	/**
 	 * @param id's string
