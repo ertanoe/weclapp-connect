@@ -1,6 +1,4 @@
 const fetch = require('node-fetch')
-const path = require('path')
-const fs = require('fs')
 
 /**
  * Creates a new weclapp instance
@@ -40,19 +38,71 @@ module.exports = function ({username, tenant, apikey}) {
 		})
 	}
 
-	// Resolve endpoints
-	const endpoints = `${__dirname}/endpoints`
-	const modules = fs.readdirSync(path.resolve(endpoints))
-		.map(v => require(path.join(endpoints, v)))
-		.reduce((pv, cv) => ({...pv, ...cv}), {})
+	// Load modules
+	const endpoints = {
+		...require('./endpoints/archivedEmail'),
+		...require('./endpoints/article'),
+		...require('./endpoints/articleCategory'),
+		...require('./endpoints/articlePrice'),
+		...require('./endpoints/articleSupplySource'),
+		...require('./endpoints/batchNumber'),
+		...require('./endpoints/campaign'),
+		...require('./endpoints/campaignParticipant'),
+		...require('./endpoints/comment'),
+		...require('./endpoints/commercialLanguage'),
+		...require('./endpoints/companySize'),
+		...require('./endpoints/contact'),
+		...require('./endpoints/contract'),
+		...require('./endpoints/currency'),
+		...require('./endpoints/customAttributeDefinition'),
+		...require('./endpoints/customer'),
+		...require('./endpoints/customerCategory'),
+		...require('./endpoints/customerLeadLossReason'),
+		...require('./endpoints/customerTopic'),
+		...require('./endpoints/customsTariffNumber'),
+		...require('./endpoints/document'),
+		...require('./endpoints/fulfillmentProvider'),
+		...require('./endpoints/incomingGoods'),
+		...require('./endpoints/lead'),
+		...require('./endpoints/leadSource'),
+		...require('./endpoints/manufacturer'),
+		...require('./endpoints/meta'),
+		...require('./endpoints/opportunityWinLossReason'),
+		...require('./endpoints/party'),
+		...require('./endpoints/paymentMethod'),
+		...require('./endpoints/productionOrder'),
+		...require('./endpoints/purchaseOrder'),
+		...require('./endpoints/quotation'),
+		...require('./endpoints/salesChannel'),
+		...require('./endpoints/salesInvoice'),
+		...require('./endpoints/salesOrder'),
+		...require('./endpoints/salesStage'),
+		...require('./endpoints/sector'),
+		...require('./endpoints/serialNumber'),
+		...require('./endpoints/shipment'),
+		...require('./endpoints/shipmentMethod'),
+		...require('./endpoints/supplier'),
+		...require('./endpoints/tax'),
+		...require('./endpoints/termOfPayment'),
+		...require('./endpoints/ticket'),
+		...require('./endpoints/unit'),
+		...require('./endpoints/user'),
+		...require('./endpoints/variantArticle'),
+		...require('./endpoints/variantArticleAttribute'),
+		...require('./endpoints/variantArticleVariant'),
+		...require('./endpoints/warehouse'),
+		...require('./endpoints/warehouseLevel'),
+		...require('./endpoints/warehouseStock'),
+		...require('./endpoints/warehouseStockMovement')
+	}
 
 	// Bind fetch
-	for (const [name, fn] of Object.entries(modules)) {
-		modules[name] = fn.bind(null, fetchAPI)
+	for (const [name, fn] of Object.entries(endpoints)) {
+		endpoints[name] = fn.bind(null, fetchAPI)
 	}
 
 	return {
-		...modules,
+		...endpoints,
 		fetch: fetchAPI
 	}
 }
