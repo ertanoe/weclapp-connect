@@ -43,7 +43,7 @@ module.exports = function ({username, tenant, apikey}) {
 	// Resolve endpoints
 	const endpoints = `${__dirname}/endpoints`
 	const modules = fs.readdirSync(path.resolve(endpoints))
-		.map(v => require(path.resolve(endpoints, v)))
+		.map(v => require(path.join(endpoints, v)))
 		.reduce((pv, cv) => ({...pv, ...cv}), {})
 
 	// Bind fetch
@@ -51,5 +51,8 @@ module.exports = function ({username, tenant, apikey}) {
 		modules[name] = fn.bind(null, fetchAPI)
 	}
 
-	return modules
+	return {
+		...modules,
+		fetch: fetchAPI
+	}
 }
