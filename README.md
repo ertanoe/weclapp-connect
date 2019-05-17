@@ -27,7 +27,7 @@ const weclapp = require('@weclapp/connect')
 (async () => {
 	
 	// Authenticate
-	const user = await weclapp({
+	const user = weclapp({
 		username: '<USERNAME>',
 		apikey: '<APIKEY>',
 		tenant: '<TENANT>'
@@ -43,7 +43,7 @@ const weclapp = require('@weclapp/connect')
 const weclapp = require('@weclapp/connect')
 
 (async () => {
-	const user = await weclapp({
+	const user = weclapp({
 		username: '<USERNAME>',
 		apikey: '<APIKEY>',
 		tenant: '<TENANT>'
