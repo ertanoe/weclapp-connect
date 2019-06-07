@@ -12,7 +12,7 @@ module.exports = {
 		const params = new URLSearchParams()
 
 		for (const [key, value] of Object.entries(obj)) {
-			value && params.append(key, value)
+			value && params.append(encodeURIComponent(key), encodeURIComponent(value))
 		}
 
 		const query = params.toString()
