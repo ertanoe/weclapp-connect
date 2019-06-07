@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getOpportunityWinLossReasons(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('opportunityWinLossReason', {page, pageSize, sort}))
+	async getOpportunityWinLossReasons(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('opportunityWinLossReason', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

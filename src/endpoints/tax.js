@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTaxes(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('tax', {page, pageSize, sort}))
+	async getTaxes(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('tax', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -34,8 +34,8 @@ module.exports = {
 	 * @param partyType
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTaxFor(fetch, {dispatchCountryCode, recipientCountryCode, taxRateType, partyType}) {
-		return fetch(buildUrl('tax/findSalesTax', {dispatchCountryCode, recipientCountryCode, taxRateType, partyType}))
+	async getTaxFor(fetch, {dispatchCountryCode, recipientCountryCode, taxRateType, partyType, ...rest}) {
+		return fetch(buildUrl('tax/findSalesTax', {dispatchCountryCode, recipientCountryCode, taxRateType, partyType, ...rest}))
 	},
 
 	/**

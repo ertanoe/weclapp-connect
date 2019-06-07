@@ -9,8 +9,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*>}
 	 */
-	async getArticles(fetch, {page, pageSize = 50, sort}) {
-		return fetch(buildUrl('article', {page, pageSize, sort}))
+	async getArticles(fetch, {page, pageSize = 50, sort, ...rest}) {
+		return fetch(buildUrl('article', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -48,8 +48,8 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<void>}
 	 */
-	async updateArticleById(fetch, {id, body}) {
-		return fetch(`article/id/${id}`, {method: 'PUT', body})
+	async updateArticleById(fetch, {id, body, ...rest}) {
+		return fetch(`article/id/${id}`, {method: 'PUT', body: {...body, ...rest}})
 	},
 
 	/**
@@ -60,8 +60,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async getArticleImage(fetch, {id, articleImageId, preview = false, scaleWidth, scaleHeight}) {
-		return fetch(buildUrl(`article/id/${id}/downloadArticleImage`, {articleImageId, preview, scaleHeight, scaleWidth}))
+	async getArticleImage(fetch, {id, articleImageId, preview = false, scaleWidth, scaleHeight, ...rest}) {
+		return fetch(buildUrl(`article/id/${id}/downloadArticleImage`, {articleImageId, preview, scaleHeight, scaleWidth, ...rest}))
 	},
 
 	/**

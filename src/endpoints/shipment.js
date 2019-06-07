@@ -9,8 +9,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getShipments(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('shipment', {page, pageSize, sort}))
+	async getShipments(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('shipment', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

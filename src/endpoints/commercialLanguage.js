@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCommercialLanguages(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('commercialLanguage', {page, pageSize, sort}))
+	async getCommercialLanguages(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('commercialLanguage', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

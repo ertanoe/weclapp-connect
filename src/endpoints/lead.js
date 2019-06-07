@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeads(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('lead', {page, pageSize, sort}))
+	async getLeads(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('lead', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -66,8 +66,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadImage(fetch, {id, scaleWidth, scaleHeight}) {
-		return fetch(buildUrl(`lead/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getLeadImage(fetch, {id, scaleWidth, scaleHeight, ...rest}) {
+		return fetch(buildUrl(`lead/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight, ...rest}))
 	},
 
 	/**

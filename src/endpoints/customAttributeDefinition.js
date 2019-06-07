@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomAttributeDefinitions(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('customAttributeDefinition', {page, pageSize, sort}))
+	async getCustomAttributeDefinitions(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('customAttributeDefinition', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

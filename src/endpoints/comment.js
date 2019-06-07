@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getComments(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('comment', {page, pageSize, sort}))
+	async getComments(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('comment', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

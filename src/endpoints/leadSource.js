@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getLeadSources(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('leadSource', {page, pageSize, sort}))
+	async getLeadSources(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('leadSource', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

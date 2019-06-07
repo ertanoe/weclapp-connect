@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesOrders(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('salesOrder', {page, pageSize, sort}))
+	async getSalesOrders(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('salesOrder', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -32,8 +32,8 @@ module.exports = {
 	 * @param responsibleUserId
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSalesOrderForCustomer(fetch, {customerId, responsibleUserId}) {
-		return fetch(buildUrl('salesOrder/defaultValuesForCreate', {customerId, responsibleUserId}))
+	async getSalesOrderForCustomer(fetch, {customerId, responsibleUserId, ...rest}) {
+		return fetch(buildUrl('salesOrder/defaultValuesForCreate', {customerId, responsibleUserId, ...rest}))
 	},
 
 	/**

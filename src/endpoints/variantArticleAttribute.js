@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getVariantArticleAttributes(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('variantArticleAttribute', {page, pageSize, sort}))
+	async getVariantArticleAttributes(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('variantArticleAttribute', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

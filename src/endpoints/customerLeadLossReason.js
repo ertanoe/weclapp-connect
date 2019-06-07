@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerLeadLossReasons(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('customerLeadLossReason', {page, pageSize, sort}))
+	async getCustomerLeadLossReasons(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('customerLeadLossReason', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

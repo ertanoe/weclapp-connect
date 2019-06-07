@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTickets(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('ticket', {page, pageSize, sort}))
+	async getTickets(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('ticket', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -50,8 +50,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTicketExtraInfoForAppById(fetch, {id}) {
-		return fetch(buildUrl(`ticket/id/${id}/extraInfoForApp`, {id}))
+	async getTicketExtraInfoForAppById(fetch, {id, ...rest}) {
+		return fetch(buildUrl(`ticket/id/${id}/extraInfoForApp`, {id, ...rest}))
 	},
 
 	/**

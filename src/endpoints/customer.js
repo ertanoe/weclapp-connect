@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomers(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('customer', {page, pageSize, sort}))
+	async getCustomers(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('customer', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -58,8 +58,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerImageById(fetch, {id, scaleWidth, scaleHeight}) {
-		return fetch(buildUrl(`customer/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getCustomerImageById(fetch, {id, scaleWidth, scaleHeight, ...rest}) {
+		return fetch(buildUrl(`customer/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight, ...rest}))
 	},
 
 	/**

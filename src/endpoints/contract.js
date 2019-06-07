@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContracts(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('contract', {page, pageSize, sort}))
+	async getContracts(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('contract', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -58,8 +58,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContractImageById(fetch, {id, scaleWidth, scaleHeight}) {
-		return fetch(buildUrl(`contract/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getContractImageById(fetch, {id, scaleWidth, scaleHeight, ...rest}) {
+		return fetch(buildUrl(`contract/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight, ...rest}))
 	},
 
 	/**

@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContacts(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('contact', {page, pageSize, sort}))
+	async getContacts(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('contact', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
@@ -58,8 +58,8 @@ module.exports = {
 	 * @param scaleHeight
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContactImageById(fetch, {id, scaleWidth, scaleHeight}) {
-		return fetch(buildUrl(`contact/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight}))
+	async getContactImageById(fetch, {id, scaleWidth, scaleHeight, ...rest}) {
+		return fetch(buildUrl(`contact/id/${id}/downloadImage`, {id, scaleWidth, scaleHeight, ...rest}))
 	},
 
 	/**

@@ -1,5 +1,3 @@
-const {buildUrl} = require('../utils')
-
 module.exports = {
 
 	/**

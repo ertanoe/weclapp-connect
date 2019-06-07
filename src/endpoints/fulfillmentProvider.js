@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getFulfillmentProviders(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('fulfillmentProvider', {page, pageSize, sort}))
+	async getFulfillmentProviders(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('fulfillmentProvider', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

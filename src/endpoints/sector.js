@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSectors(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('sector', {page, pageSize, sort}))
+	async getSectors(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('sector', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

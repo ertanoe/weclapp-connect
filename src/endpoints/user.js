@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getUsers(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('user', {page, pageSize, sort}))
+	async getUsers(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('user', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

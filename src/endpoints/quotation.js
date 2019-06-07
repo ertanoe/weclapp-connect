@@ -8,8 +8,8 @@ module.exports = {
 	 * @param sort
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getQuotations(fetch, {page, pageSize, sort}) {
-		return fetch(buildUrl('quotation', {page, pageSize, sort}))
+	async getQuotations(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('quotation', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
