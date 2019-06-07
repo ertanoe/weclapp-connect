@@ -16,7 +16,7 @@ module.exports = function ({username, tenant, apikey}) {
 	 * @param body Request body
 	 * @returns {Promise<*>}
 	 */
-	async function fetchAPI(endpoint, {method = 'GET', body} = {}) {
+	async function fetchAPI(endpoint, {method = 'GET', body = null} = {}) {
 		method = method.toUpperCase()
 
 		return fetch(`https://${tenant}.weclapp.com/webapp/api/v1/${endpoint}`, {
