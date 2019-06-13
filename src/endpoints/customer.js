@@ -23,8 +23,8 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getCustomerCount(fetch) {
-		return fetch('customer/count')
+	async getCustomerCount(fetch, {...rest}) {
+		return fetch(buildUrl('customer/count', {...rest}))
 	},
 
 	/**

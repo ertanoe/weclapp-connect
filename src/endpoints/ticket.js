@@ -23,8 +23,8 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getTicketCount(fetch) {
-		return fetch('ticket/count')
+	async getTicketCount(fetch, {...rest}) {
+		return fetch(buildUrl('ticket/count', {...rest}))
 	},
 
 	/**

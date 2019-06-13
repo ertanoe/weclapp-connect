@@ -23,8 +23,8 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getContactCount(fetch) {
-		return fetch('contract/count')
+	async getContractCount(fetch, {...rest}) {
+		return fetch(buildUrl('contract/count', {...rest}))
 	},
 
 	/**
