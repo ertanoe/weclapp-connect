@@ -27,9 +27,12 @@ const weclapp = require('@weclapp/connect')
 	
 	// Authenticate
 	const user = weclapp({
-		username: '<USERNAME>',
-		apikey: '<APIKEY>',
-		tenant: '<TENANT>'
+		username: '<string>',
+		apikey: '<string>',
+		
+		// One of the following
+		tenant: '<string>', // Example: myapp
+		domain: '<string>', // Example: app.company.com
 	})
 
 	// Prints the current user to the console
@@ -42,11 +45,7 @@ const weclapp = require('@weclapp/connect')
 const weclapp = require('@weclapp/connect')
 
 (async () => {
-	const user = weclapp({
-		username: '<USERNAME>',
-		apikey: '<APIKEY>',
-		tenant: '<TENANT>'
-	})
+	const user = weclapp(<config>)
 	
 	// Prints time-records to the console
 	console.log(await user.fetch('timeRecord'))

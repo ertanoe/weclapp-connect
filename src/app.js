@@ -3,11 +3,28 @@ const fetch = require('node-fetch')
 /**
  * Creates a new weclapp instance
  * @param username Your username
+ * @param domain Alternative to tenant
  * @param tenant Your tenant
  * @param apikey Your apikey
  */
-module.exports = function ({username, tenant, apikey}) {
+module.exports = function ({username, domain = null, tenant, apikey}) {
 	const authToken = `Basic ${Buffer.from(`${username}:${apikey}`, 'ascii').toString('base64')}`
+
+	// Validate some stuff
+	if (domain && tenant) {
+		throw 'Domain or a tenant based on \'*.weclapp.com\' must be defined'
+	} else if (!domain && !tenant) {
+		throw 'A domain or tenant must be defined'
+	}
+
+	if (!username || !apikey) {
+		throw 'Username or apikey missing'
+	}
+
+	// Strip protocol part
+	if (domain) {
+		domain = domain.replace(/^https?:\/\//, '')
+	}
 
 	/**
 	 * Makes a request to the weclapp rest-api
@@ -19,7 +36,8 @@ module.exports = function ({username, tenant, apikey}) {
 	async function fetchAPI(endpoint, {method = 'GET', body = null} = {}) {
 		method = method.toUpperCase()
 
-		return fetch(`https://${tenant}.weclapp.com/webapp/api/v1/${endpoint}`, {
+
+		return fetch(`https://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`, {
 			...(body && {body: JSON.stringify(body)}),
 			method,
 			headers: {
