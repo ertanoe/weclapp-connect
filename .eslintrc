@@ -1,16 +1,13 @@
 {
 	"env": {
-		"browser": true,
 		"node": true,
-		"commonjs": true,
 		"es6": true
 	},
-	"extends": "eslint:recommended",
+	"extends": "@weclapp",
 	"parserOptions": {
 		"ecmaVersion": 2018
 	},
 	"rules": {
-		"no-console": "warn",
 		"indent": [
 			"error",
 			"tab"
@@ -18,14 +15,6 @@
 		"linebreak-style": [
 			"error",
 			"windows"
-		],
-		"quotes": [
-			"error",
-			"single"
-		],
-		"semi": [
-			"error",
-			"never"
 		]
 	}
 }
