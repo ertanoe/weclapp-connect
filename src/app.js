@@ -2,13 +2,11 @@ const fetch = require('node-fetch')
 
 /**
  * Creates a new weclapp instance
- * @param username Your username
  * @param domain Alternative to tenant
  * @param tenant Your tenant
  * @param apikey Your apikey
  */
-module.exports = function ({username, domain = null, tenant, apikey}) {
-	const authToken = `Basic ${Buffer.from(`${username}:${apikey}`, 'ascii').toString('base64')}`
+module.exports = function ({domain = null, tenant, apikey}) {
 
 	// Validate some stuff
 	if (domain && tenant) {
@@ -17,8 +15,8 @@ module.exports = function ({username, domain = null, tenant, apikey}) {
 		throw 'A domain or tenant must be defined'
 	}
 
-	if (!username || !apikey) {
-		throw 'Username or apikey missing'
+	if (!apikey) {
+		throw 'APIKey missing'
 	}
 
 	// Strip protocol part
@@ -43,7 +41,7 @@ module.exports = function ({username, domain = null, tenant, apikey}) {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
-				'Authorization': authToken
+				'AuthenticationToken': apikey
 			}
 		}).then(res => {
 

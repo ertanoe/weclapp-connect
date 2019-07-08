@@ -2,6 +2,15 @@
    weclapp connect
 </h3>
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/@weclapp/connect"><img
+     alt="Downloads"
+     src="https://img.shields.io/npm/dw/@weclapp/connect.svg?style=flat-square">
+  </a>
+  <img alt="Current version"
+     src="https://img.shields.io/github/tag/ertanoe/weclapp-connect.svg?color=3498DB&label=version&style=flat-square">
+</p>
+
 weclapp-connect provides a way to communicate with the weclapp/rest api through a simple and easy-to-use nodejs module.
 
 ## Installation
