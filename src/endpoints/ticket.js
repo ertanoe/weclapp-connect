@@ -61,5 +61,16 @@ module.exports = {
 	 */
 	async createTicketExtraInfoForAppForId(fetch, id, body) {
 		return fetch(buildUrl(`ticket/id/${id}/extraInfoForApp`, {id}), {method: 'POST', body})
+	},
+
+	/**
+	 * @param page
+	 * @param pageSize
+	 * @param sort
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getTicketPriorities(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('ticketPriority', {page, pageSize, sort, ...rest}))
 	}
 }
+
