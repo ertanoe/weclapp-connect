@@ -16,7 +16,7 @@ module.exports = {
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
 	async getOpportunityCount(fetch, {...rest}) {
-		return fetch(buildUrl('Opportunity/count', {...rest}))
+		return fetch(buildUrl('opportunity/count', {...rest}))
 	},
 	/**
 	 * @param id

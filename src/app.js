@@ -83,6 +83,7 @@ module.exports = function ({domain = null, tenant, apikey}) {
 		...require('./endpoints/leadSource'),
 		...require('./endpoints/manufacturer'),
 		...require('./endpoints/meta'),
+		...require('./endpoints/opportunity'),
 		...require('./endpoints/opportunityWinLossReason'),
 		...require('./endpoints/party'),
 		...require('./endpoints/paymentMethod'),
