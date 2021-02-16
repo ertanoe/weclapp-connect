@@ -13,6 +13,12 @@
 
 weclapp-connect provides a way to communicate with the weclapp/rest api through a simple and easy-to-use nodejs module.
 
+## Status of this project
+This package is not longer (actively) maintained.
+We're currently working on a fully type-safe SDK which will replace it.
+We cannot give any ETA since there a many things to do before it reaches a stable state.
+
+
 ## Installation
 The package is available on npm under the official [weclapp organization](https://www.npmjs.com/org/weclapp).
 
