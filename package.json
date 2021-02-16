@@ -1,6 +1,6 @@
 {
-	"name": "@weclapp/connect",
-	"version": "0.2.1",
+	"name": "@icosense/connect",
+	"version": "0.2.2",
 	"description": "weclapp REST API client for nodejs",
 	"main": "src/app.js",
 	"scripts": {
@@ -24,7 +24,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ertanoe/weclapp-connect.git"
+		"url": "git+https://github.com/icosense/weclapp-connect.git"
 	},
 	"keywords": [
 		"weclapp",
@@ -32,7 +32,7 @@
 		"partner portal connect"
 	],
 	"bugs": {
-		"url": "https://github.com/ertanoe/weclapp-connect/issues"
+		"url": "https://github.com/icosense/weclapp-connect/issues"
 	},
-	"homepage": "https://github.com/ertanoe/weclapp-connect#readme"
+	"homepage": "https://github.com/icosense/weclapp-connect#readme"
 }
