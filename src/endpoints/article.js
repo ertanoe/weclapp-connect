@@ -23,8 +23,9 @@ module.exports = {
 	/**
 	 * @returns {Promise<Promise|*|Promise<*>|Promise<Response>|never>}
 	 */
-	async getArticleCount(fetch) {
-		return fetch('article/count')
+	 async getArticleCount(fetch, {page, pageSize = 50, sort, ...rest}) {
+		//return fetch('article/count')
+		return fetch(buildUrl('article/count', {page, pageSize, sort, ...rest}))
 	},
 
 	/**

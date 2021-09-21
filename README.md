@@ -3,7 +3,7 @@
 </h3>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@weclapp/connect"><img
+  <a href="https://www.npmjs.com/package/@icosense/connect"><img
      alt="Downloads"
      src="https://img.shields.io/npm/dw/@weclapp/connect.svg?style=flat-square">
   </a>
@@ -14,7 +14,6 @@
 weclapp-connect provides a way to communicate with the weclapp/rest api through a simple and easy-to-use nodejs module.
 
 ## Installation
-The package is available on npm under the official [weclapp organization](https://www.npmjs.com/org/weclapp).
 
 Install via npm:
 ```shell
@@ -30,15 +29,15 @@ $ yarn add @weclapp/connect
 #### Quickstart
 
 ```js
-const weclapp = require('@weclapp/connect')
+const weclapp = require('@icosense/connect')
 
 (async () => {
-	
+
 	// Authenticate
 	const user = weclapp({
 		username: '<string>',
 		apikey: '<string>',
-		
+
 		// One of the following
 		tenant: '<string>', // Example: myapp
 		domain: '<string>', // Example: app.company.com
@@ -55,7 +54,7 @@ const weclapp = require('@weclapp/connect')
 
 (async () => {
 	const user = weclapp(<config>)
-	
+
 	// Prints time-records to the console
 	console.log(await user.fetch('timeRecord'))
 })()

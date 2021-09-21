@@ -36,8 +36,9 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		method = method.toUpperCase()
 
 
-		return fetch(`${protocol}://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`, {
-			...(body && {body: JSON.stringify(body)}),
+		return axios({
+			url: `${protocol}://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`,
+			body:(body && {body: JSON.stringify(body)}),
 			method,
 			headers: {
 				'Content-Type': 'application/json',
@@ -47,11 +48,11 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		}).then(res => {
 
 			// Check if response was successful
-			if (!res.ok) {
+			if (res.status!== 200) {
 				throw res
 			}
 
-			return res.headers.get('content-type').includes('application/json') ? res.json() : res.arrayBuffer()
+			return res.data
 		})
 	}
 
