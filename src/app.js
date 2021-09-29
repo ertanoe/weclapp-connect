@@ -38,7 +38,7 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 
 		return axios({
 			url: `${protocol}://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`,
-			body:(body && {body: JSON.stringify(body)}),
+			data: body,
 			method,
 			headers: {
 				'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		}).then(res => {
 
 			// Check if response was successful
-			if (res.status!== 200) {
+			if (res.status < 200 || res.status > 250) {
 				throw res
 			}
 

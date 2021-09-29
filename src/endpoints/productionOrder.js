@@ -31,7 +31,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createProductionOrder(fetch, body) {
+	async fastProductionBooking(fetch, body) {
 		return fetch('productionOrder/fastProductionBooking', {method: 'POST', body})
 	},
 
