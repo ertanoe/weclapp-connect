@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const axios = require('axios')
 
 /**
  * Creates a new weclapp instance
@@ -6,8 +6,9 @@ const fetch = require('node-fetch')
  * @param tenant Your tenant
  * @param apikey Your apikey
  */
-module.exports = function ({domain = null, tenant, apikey}) {
+module.exports = function ({domain = null, tenant, apikey, protocol}) {
 
+	protocol = protocol || 'https'
 	// Validate some stuff
 	if (domain && tenant) {
 		throw 'Domain or a tenant based on \'*.weclapp.com\' must be defined'
@@ -35,8 +36,9 @@ module.exports = function ({domain = null, tenant, apikey}) {
 		method = method.toUpperCase()
 
 
-		return fetch(`https://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`, {
-			...(body && {body: JSON.stringify(body)}),
+		return axios({
+			url: `${protocol}://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`,
+			data: body,
 			method,
 			headers: {
 				'Content-Type': 'application/json',
@@ -46,11 +48,11 @@ module.exports = function ({domain = null, tenant, apikey}) {
 		}).then(res => {
 
 			// Check if response was successful
-			if (!res.ok) {
+			if (res.status < 200 || res.status > 250) {
 				throw res
 			}
 
-			return res.headers.get('content-type').includes('application/json') ? res.json() : res.arrayBuffer()
+			return res.data
 		})
 	}
 

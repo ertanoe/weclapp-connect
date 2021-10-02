@@ -5,8 +5,8 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocument(fetch) {
-		return fetch('document')
+	async getDocument(fetch, {entityId, entityName}) {
+		return fetch(buildUrl('document' ,{entityId, entityName}))
 	},
 
 	/**
