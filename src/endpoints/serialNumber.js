@@ -25,5 +25,14 @@ module.exports = {
 	 */
 	async getSerialNumberById(fetch, id) {
 		return fetch(buildUrl(`serialNumber/id/${id}`, {id}))
-	}
+	},
+
+	/**
+	 * @param id
+	 * @param body
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async updateSerialNumberForId(fetch, id, body) {
+		return fetch(buildUrl(`serialNumber/id/${id}`, {id}), {method: 'PUT', body})
+	},
 }
