@@ -67,7 +67,7 @@ module.exports = {
 	 */
 	async getLatestProductionOrderPdfProductionOrderById(fetch, id) {
 		return fetch(buildUrl(`productionOrder/id/${id}/downloadLatestProductionOrderPdf`, {id}))
-	}
+	},
 
 	/**
 	 * @param id
@@ -83,6 +83,6 @@ module.exports = {
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
 	async updateProductionOrderWidthdrawalsById(fetch, id, body) {
-		return fetch(buildUrl(`productionOrder/id/${id}/withdrawals`, { id }), { method: 'POST', body })
+		return fetch(buildUrl(`productionOrder/id/${id}/updateWithdrawals`, { id }), { method: 'POST', body })
 	},
 }
