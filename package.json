@@ -1,6 +1,6 @@
 {
 	"name": "@icosense/connect",
-	"version": "0.2.10",
+	"version": "0.2.11",
 	"description": "weclapp REST API client for nodejs",
 	"main": "src/app.js",
 	"scripts": {

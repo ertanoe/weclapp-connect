@@ -15,8 +15,8 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseStockCount(fetch) {
-		return fetch('warehouseStock/count')
+	async getWarehouseStockCount(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('warehouseStock/count', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
