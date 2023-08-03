@@ -39,8 +39,8 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getWarehouseStockMovementCount(fetch) {
-		return fetch('warehouseStockMovement/count')
+	async getWarehouseStockMovementCount(fetch, {page, pageSize, sort, ...rest}) {
+		return fetch(buildUrl('warehouseStockMovement/count', {page, pageSize, sort, ...rest}))
 	},
 
 	/**
