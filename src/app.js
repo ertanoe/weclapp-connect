@@ -67,6 +67,7 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		...require('./endpoints/campaign'),
 		...require('./endpoints/campaignParticipant'),
 		...require('./endpoints/comment'),
+		...require('./endpoints/costCenter'),
 		...require('./endpoints/commercialLanguage'),
 		...require('./endpoints/companySize'),
 		...require('./endpoints/contact'),

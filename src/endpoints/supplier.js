@@ -23,7 +23,7 @@ module.exports = {
 	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getSuppliers(fetch) {
+	async getSuppliersCount(fetch) {
 		return fetch('supplier/count')
 	},
 
