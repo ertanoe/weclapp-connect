@@ -49,7 +49,7 @@ module.exports = {
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createPurchaseOrder(fetch, id, body) {
+	async createIncomingGoodsForPurchaseOrder(fetch, id, body) {
 		return fetch(buildUrl(`purchaseOrder/id/${id}/createIncomingGoods`, {id}), {method: 'POST', body})
 	}
 }
