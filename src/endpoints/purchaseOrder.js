@@ -51,5 +51,14 @@ module.exports = {
 	 */
 	async createIncomingGoodsForPurchaseOrder(fetch, id, body) {
 		return fetch(buildUrl(`purchaseOrder/id/${id}/createIncomingGoods`, {id}), {method: 'POST', body})
+	},
+
+	/**
+	 * @param id
+	 * @param body
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async createPurchaseInvoiceForPurchaseOrder(fetch, id, body) {
+		return fetch(buildUrl(`purchaseOrder/id/${id}/createPurchaseInvoice`, {id}), {method: 'POST', body})
 	}
 }

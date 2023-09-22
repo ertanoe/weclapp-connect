@@ -91,6 +91,7 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		...require('./endpoints/party'),
 		...require('./endpoints/paymentMethod'),
 		...require('./endpoints/productionOrder'),
+		...require('./endpoints/pick'),
 		...require('./endpoints/purchaseOrder'),
 		...require('./endpoints/quotation'),
 		...require('./endpoints/salesChannel'),
@@ -112,6 +113,7 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		...require('./endpoints/variantArticleVariant'),
 		...require('./endpoints/warehouse'),
 		...require('./endpoints/warehouseLevel'),
+		...require('./endpoints/storagePlace'),
 		...require('./endpoints/warehouseStock'),
 		...require('./endpoints/warehouseStockMovement')
 	}

@@ -37,6 +37,14 @@ module.exports = {
 	},
 
 	/**
+	 * @param body
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async bookDirectStockTransfer(fetch, body) {
+		return fetch('warehouseStockMovement/bookDirectStockTransfer', {method: 'POST', body})
+	},
+
+	/**
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
 	async getWarehouseStockMovementCount(fetch, {page, pageSize, sort, ...rest}) {
