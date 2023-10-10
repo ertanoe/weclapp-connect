@@ -96,6 +96,7 @@ module.exports = function ({domain = null, tenant, apikey, protocol}) {
 		...require('./endpoints/quotation'),
 		...require('./endpoints/salesChannel'),
 		...require('./endpoints/salesInvoice'),
+		...require('./endpoints/purchaseInvoice'),
 		...require('./endpoints/salesOrder'),
 		...require('./endpoints/salesStage'),
 		...require('./endpoints/sector'),
