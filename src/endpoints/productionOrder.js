@@ -85,4 +85,21 @@ module.exports = {
 	async updateProductionOrderWidthdrawalsById(fetch, id, body) {
 		return fetch(buildUrl(`productionOrder/id/${id}/updateWithdrawals`, { id }), { method: 'POST', body })
 	},
+
+	/**
+	 * @param id
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async getProductionOrderPicksById(fetch, id) {
+		return fetch(buildUrl(`productionOrder/id/${id}/picks`, { id }))
+	},
+
+	/**
+	 * @param id
+	 * @param body
+	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
+	 */
+	async updateProductionOrderPicksById(fetch, id, body) {
+		return fetch(buildUrl(`productionOrder/id/${id}/updatePicks`, { id }), { method: 'POST', body })
+	},
 }
